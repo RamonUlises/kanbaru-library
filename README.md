@@ -1,6 +1,6 @@
 ## Contribución
 
-¡Gracias por tu interés en contribuir a NextStep Para contribuir, sigue estos pasos:
+¡Gracias por tu interés en contribuir a Kanbaru Library Para contribuir, sigue estos pasos:
 
 1. Crea un **Fork** del repositorio.
 2. **Clona** tu fork localmente:
