@@ -1,0 +1,64 @@
+<nav>
+  
+  <div>
+    <a href="#">
+    <img src="/public/Logo.png" alt="logo" width="100px"/>
+    </a>
+  </div>
+
+  <ul>
+    <li><a href="#">Libreria</a></li>
+    <li><a href="#">Estadisticas</a></li>
+    <li><a href="#">Acerca</a></li>
+    <a href="#"><img src="/public/user (2).png" alt="user" width="60" height="60"/></a>
+  </ul>
+</nav>
+
+<style>
+
+  div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #937263;
+    height: 70px;
+    border-radius: 10px;
+    padding-inline: 40px;
+  }
+  h1{
+    color: #fff;
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: 600;
+  }
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; 
+    
+  }
+  ul{
+    height: 70px;
+    background-color: #937263;
+    display: flex;
+    flex-flow: row nowrap;
+    list-style-type: none;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 40px;
+    border-radius: 10px;;
+  }
+  a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  img{
+    margin-top: 3px;
+  }
+</style>
