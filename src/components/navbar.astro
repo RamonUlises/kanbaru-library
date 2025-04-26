@@ -9,9 +9,42 @@
       <li><a href="#">Libreria</a></li>
       <li><a href="#">Estadisticas</a></li>
       <li><a href="#">Acerca</a></li>
-      <a href="#"
-        ><img src="/public/user (2).png" alt="user" width="35" height="35" /></a
+      <a href="#" class="user">
+        <img src="/public/user (2).png" alt="user" width="35" height="35" /></a
       >
+      <div class="submenu">
+        <ul>
+          <li>
+            <a href="#"
+              ><img src="/public//perfil.svg" alt="Perfil" />Tu perfil</a
+            >
+          </li>
+          <li>
+            <a href="#"><img src="/public/tema.svg" alt="Cambiar tema" />Tema</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="/public/grafico.svg" alt="Crear gráfica" />Crear
+              gráfica</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="/public/configuracion.svg"
+                alt="Configuración"
+              />Configuración</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="/public/cerra-sesion.svg" alt="Cerrar sesión" />Cerrar
+              sesión</a
+            >
+          </li>
+        </ul>
+      </div>
     </ul>
   </nav>
 </header>
@@ -29,7 +62,7 @@
     gap: 10px;
     background-color: #937263;
     height: 70px;
-    border-radius: 10px;
+    border-radius: 15px;
     padding-inline: 40px;
   }
   nav {
@@ -38,7 +71,7 @@
     align-items: center;
     height: 70px;
     background-color: #937263;
-    border-radius: 10px;
+    border-radius: 15px;
   }
   ul {
     display: flex;
@@ -55,4 +88,65 @@
       text-decoration: underline;
     }
   }
+  .submenu {
+    position: absolute;
+    top: 5.2rem;
+    right: 1.2rem;
+    width: auto;
+    height: auto;
+    padding: 0;
+    display: none;
+  }
+  .submenu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    z-index: 1000;
+  }
+  .submenu ul a {
+    display: flex;
+
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  .submenu li {
+    width: 100%;
+  }
+  .submenu img {
+    width: 30px;
+    height: auto;
+    align-items: start;
+  }
+  .user {
+    position: relative;
+  }
+  .submenu.active {
+    display: block;
+  }
 </style>
+<script>
+  function subMenu() {
+    const submenu = document.querySelector(".submenu");
+    if (submenu) {
+      submenu.classList.toggle("active");
+    }
+  }
+
+  document.querySelector(".user")?.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    subMenu();
+  });
+
+  window.addEventListener("click", function (event) {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+
+    if (!target.closest(".submenu") && !target.closest(".user")) {
+      document.querySelector(".submenu")?.classList.remove("active");
+    }
+  });
+</script>
