@@ -1,7 +1,7 @@
 import Image1 from "../assets/inicio1.png?url";
 export function Inicio() {
   return (
-    <section className=" flex flex-col  ">
+    <section className="flex flex-col  ">
       <div className="h-[100vh] flex flex-col justify-center items-center">
         <img
           src={Image1}
@@ -19,6 +19,95 @@ export function Inicio() {
         <button className="bg-principal-500 text-white py-2 px-4 rounded-[10px] mx-auto mt-6">
           Explorar libros
         </button>
+      </div>
+      <div className="flex justify-center items-center flex-col gap-24">
+        <h2 className="text-5xl font-semibold">Nuestra biblioteca en números</h2>
+        <div className="flex">
+          <div className="flex flex-col justify-center items-center mx-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="70"
+              height="70"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-book text-amber-400"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+              <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+              <path d="M3 6l0 13" />
+              <path d="M12 6l0 13" />
+              <path d="M21 6l0 13" />
+            </svg>
+            <p className="font-medium text-2xl">+13k</p>
+            <p className="text-[20px] font-light">Libros <br /> disponibles</p>
+          </div>
+          <div className="flex flex-col justify-center items-center mx-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="70"
+              height="70"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-tag text-amber-400"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+              <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />
+            </svg>
+            <p className="font-medium text-2xl">10</p>
+            <p className="text-[20px] font-light">Categorias <br /> tematicas</p>
+          </div>
+          <div className="flex flex-col justify-center items-center mx-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="70"
+              height="70"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-users text-amber-400"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+              <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+            </svg>
+            <p className="font-medium text-2xl">+10k</p>
+            <p  className="text-[20px] font-light">Usuarios <br /> activos</p>
+          </div>
+          <div className="flex flex-col justify-center items-center mx-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="70"
+              height="70"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-reload text-amber-400"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" />
+              <path d="M20 4v5h-5" />
+            </svg>
+            <p className="text-[20px] font-light">Actividades <br /> recurrentes</p>
+          </div>
+        </div>
       </div>
     </section>
   );
