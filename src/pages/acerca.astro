@@ -1,0 +1,143 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Acerca">
+  <div class="nosotros">
+    <h2>Nosotros</h2>
+    <p>
+      Somos un equipo de estudiantes comprometidos con la innovación tecnológica
+      y el desarrollo de soluciones prácticas para nuestra comunidad. Nuestra
+      misión es transformar la manera en que se administra la Biblioteca Samuel
+      Meza, facilitando el acceso a la información y mejorando su organización
+      interna. Hemos identificado los retos actuales que enfrenta la biblioteca,
+      como la pérdida de datos, la dificultad para encontrar libros y la falta
+      de reportes útiles para la toma de decisiones. Por ello, proponemos una
+      aplicación web moderna, segura y fácil de usar, diseñada para resolver
+      estos problemas y optimizar la gestión del inventario.
+    </p>
+  </div>
+  <div class="mision-vision">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="70"
+        height="70"
+        stroke-width="2"
+      >
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+        <path d="M3 6l0 13"></path>
+        <path d="M12 6l0 13"></path>
+        <path d="M21 6l0 13"></path>
+      </svg><h2>Misión</h2>
+      <p>
+        Desarrollar soluciones tecnologicas que mejoren la gestión y el acceso a
+        la información en bibliotecas, promoviendo una cultura de lectura,
+        organización y eficiencia en instituciones educativas como la Biblioteca
+        Samuel Meza
+      </p>
+    </div>
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="70"
+        height="70"
+        stroke-width="2"
+      >
+        <path
+          d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"
+        ></path>
+      </svg>
+      <h2>Visión</h2>
+      <p>
+        Ser una plataforma innovadora y confiable que transforme la manera en la
+        que las bibliotecas administran sus recursos, convirtiéndose en una
+        referente nacional en sistemas de gestión bibliotecaria
+      </p>
+    </div>
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="70"
+        height="70"
+        stroke-width="2"
+      >
+        <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"></path>
+        <path
+          d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"
+        ></path>
+        <path d="M9.7 17l4.6 0"></path>
+      </svg>
+      <h2>Valores</h2>
+      <ul>
+        <li>
+          <b>Compromiso con la educacion:</b> apoyamos el acceso equitativo al conocimiento.
+        </li>
+        <li>
+          <b>Innovacion tecnológica:</b> Aprovechamos la tecnologia para resolver
+          problemas reales.
+        </li>
+        <li>
+          <b>Transparencia y organización:</b> Promovemos la gestión eficiente y
+          clara de la información.
+        </li>
+      </ul>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .nosotros {
+    background-image: url("/src/assets/Acerca.png");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 200px;
+    width: 80%;
+    margin: 150px auto;
+    border-radius: 30px;
+    align-content: center;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .mision-vision {
+    width: 80%;
+    margin: 100px auto;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    background-color: var(--color-principal-100);
+    border-radius: 30px;
+    padding: 50px 100px;
+  }
+  .mision-vision div {
+    width: 33.33%;
+  }
+  .mision-vision svg {
+    margin: 0 auto;
+    display: block;
+    stroke: var(--color-principal-600);
+  }
+  .mision-vision ul {
+    list-style: outside;
+  }
+</style>
