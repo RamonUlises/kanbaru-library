@@ -1,114 +1,181 @@
 ---
 import Image1 from "../assets/inicio1.png";
 import { Image } from "astro:assets";
+import Image2 from "../assets/imageInicio2.png";
+import Image3 from "../assets/imageInicio3.png";
+import Image4 from "../assets/imageInicio4.png";
 ---
 
-    <section class="flex flex-col  ">
-      <div class="h-[100vh] flex flex-col justify-center items-center">
-        <Image
-          src={Image1}
-          alt="imagen inicio"
-          class="rounded-3xl object-cover mx-auto shadow-2xl w-[900px] h-[300px] "
-        />
-        <h2 class="text-6xl font-bold text-center mt-20">
-          Organiza el conocimiento,
-          <br /> transforma la gestión
-        </h2>
-        <p class=" text-center font-light text-3xl">
-          Una biblioteca eficiente comienza con una <br /> administración
-          inteligente.
-        </p>
-        <button class="bg-principal-500 text-white py-2 px-4 rounded-[10px] mx-auto mt-6">
-          Explorar libros
-        </button>
+<section class="flex flex-col">
+  <div class="h-[100vh] flex flex-col justify-center items-center">
+    <Image
+      src={Image1}
+      alt="imagen inicio"
+      class="rounded-3xl object-cover mx-auto shadow-2xl w-[900px] h-[300px]"
+    />
+    <h2 class="text-6xl font-bold text-center mt-20">
+      Organiza el conocimiento,
+      <br /> transforma la gestión
+    </h2>
+    <p class="text-center font-light text-3xl">
+      Una biblioteca eficiente comienza con una <br /> administración inteligente.
+    </p>
+    <button
+      class="bg-principal-500 text-white py-2 px-4 rounded-[10px] mx-auto mt-6"
+    >
+      Explorar libros
+    </button>
+  </div>
+  <div class="flex justify-center items-center flex-col gap-24">
+    <h2 class="text-5xl font-semibold">Nuestra biblioteca en números</h2>
+    <div class="flex">
+      <div class="flex flex-col justify-center items-center mx-10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="70"
+          height="70"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-book text-amber-400"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+          <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+          <path d="M3 6l0 13"></path>
+          <path d="M12 6l0 13"></path>
+          <path d="M21 6l0 13"></path>
+        </svg>
+        <p class="font-medium text-2xl">+13k</p>
+        <p class="text-[20px] font-light">Libros <br /> disponibles</p>
       </div>
-      <div class="flex justify-center items-center flex-col gap-24">
-        <h2 class="text-5xl font-semibold">Nuestra biblioteca en números</h2>
-        <div class="flex">
-          <div class="flex flex-col justify-center items-center mx-10">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-book text-amber-400"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-              <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-              <path d="M3 6l0 13" />
-              <path d="M12 6l0 13" />
-              <path d="M21 6l0 13" />
-            </svg>
-            <p class="font-medium text-2xl">+13k</p>
-            <p class="text-[20px] font-light">Libros <br /> disponibles</p>
-          </div>
-          <div class="flex flex-col justify-center items-center mx-10">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-tag text-amber-400"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-              <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />
-            </svg>
-            <p class="font-medium text-2xl">10</p>
-            <p class="text-[20px] font-light">Categorias <br /> tematicas</p>
-          </div>
-          <div class="flex flex-col justify-center items-center mx-10">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-users text-amber-400"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-              <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-            </svg>
-            <p class="font-medium text-2xl">+10k</p>
-            <p  class="text-[20px] font-light">Usuarios <br /> activos</p>
-          </div>
-          <div class="flex flex-col justify-center items-center mx-10">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-reload text-amber-400"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" />
-              <path d="M20 4v5h-5" />
-            </svg>
-            <p class="text-[20px] font-light">Actividades <br /> recurrentes</p>
+      <div class="flex flex-col justify-center items-center mx-10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="70"
+          height="70"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-tag text-amber-400"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+          <path
+            d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z"
+          ></path>
+        </svg>
+        <p class="font-medium text-2xl">10</p>
+        <p class="text-[20px] font-light">Categorias <br /> tematicas</p>
+      </div>
+      <div class="flex flex-col justify-center items-center mx-10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="70"
+          height="70"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-users text-amber-400"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+          <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+        </svg>
+        <p class="font-medium text-2xl">+10k</p>
+        <p class="text-[20px] font-light">Usuarios <br /> activos</p>
+      </div>
+      <div class="flex flex-col justify-center items-center mx-10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="70"
+          height="70"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-reload text-amber-400"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747"
+          ></path>
+          <path d="M20 4v5h-5"></path>
+        </svg>
+        <p class="text-[20px] font-light">Actividades <br /> recurrentes</p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-10 text-center">
+      <h3 class="font-semibold text-5xl">Beneficios</h3>
+      <div class="flex mx-auto gap-24 text-center mt-8">
+        <div
+          class="flex flex-col gap-8 py-6 px-6 h-[300px] w-[350px] bg-white rounded-3xl shadow-2xl"
+        >
+          <h3 class="font-semibold text-[18px]">Optimización de recursos</h3>
+          <p class="font-light text-[16px]">
+            Mejor control del inventario y <br /> disponibilidad de libros en tiempo
+            <br />
+            real. Gracias al sistema, el personal <br /> puede registrar, actualizar
+            y <br />
+            monitorear los libros de manera <br /> rápida, reduciendo pérdidas y
+            <br />
+            mejorando la eficiencia en la gestión.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-8 py-6 px-6 h-[300px] w-[350px] bg-white rounded-3xl shadow-2xl"
+        >
+          <h3 class="font-semibold text-[18px]">
+            Toma de Decisiones Inteligente
+          </h3>
+          <p class="font-light text-[16px]">
+            Acceso a estadísticas claras sobre <br /> préstamos y libros más consultados.
+            <br />
+            Los datos visuales ayudan a <br /> identificar tendencias de lectura
+            y <br /> tomar decisiones informadas sobre <br /> adquisiciones o necesidades
+            de reorganización.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-10 text-center">
+      <h3 class="font-semibold text-5xl">Testimonios</h3>
+      <div class="flex mx-auto gap-24 text-center mt-8">
+        <div>
+          <Image
+            src={Image2}
+            alt="imagen inicio"
+            class="rounded-[50%] mx-auto shadow-2xl object-cover w-[200px] h-[200px]"
+          />
+        </div>
+        <div>
+          <Image
+            src={Image3}
+            alt="imagen inicio"
+            class="rounded-[50%] mx-auto shadow-2xl object-cover w-[200px] h-[200px]"
+          />
+          <div>
+            <Image
+              src={Image4}
+              alt="imagen inicio"
+              class="rounded-[50%] mx-auto shadow-2xl object-cover w-[200px] h-[200px]"
+            />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
