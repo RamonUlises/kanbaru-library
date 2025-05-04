@@ -1,7 +1,12 @@
+---
+  import logo from '@assets/logo.png';
+  import { Image } from 'astro:assets';
+---
+
 <header>
   <div>
     <a href="/">
-      <img src="/public/Logo.png" alt="logo" width="90" height="45" />
+      <Image src={logo} alt="logo" width="90" height="45" />
     </a>
   </div>
   <nav>
