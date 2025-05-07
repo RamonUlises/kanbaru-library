@@ -43,13 +43,17 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
         </div>
         <div class="radio-inputs">
           <label class="radio">
-            <input type="radio" name="masculino" checked="" value="1" />
-            <span class="name">Masculino</span>
+            <input type="radio" name="radio" checked id="masculino">
+            <span class="name">Maculino</span>
           </label>
+              
           <label class="radio">
-            <input type="radio" name="femenino" value="2" />
+            <input type="radio" name="radio" id="femenino">
             <span class="name">Femenino</span>
           </label>
+        </div>
+        <div>
+          <p id="error-msg"></p>
         </div>
         <button type="submit" class="btn">Registrar</button>
       </form>
@@ -376,6 +380,8 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
 </style>
 
 <script>
+  import { validarCrearUsuario } from "@utils/validarCrearUsuario";
+
   const container = document.querySelector(".container") as HTMLElement;
   const registerBtn = document.querySelector(".register-btn") as HTMLElement;
   const loginBtn = document.querySelector(".login-btn") as HTMLElement;
@@ -387,17 +393,32 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
   loginBtn.addEventListener("click", () => {
     container.classList.remove("active");
   });
-
+  
   document.addEventListener("submit", async (event) => {
     event.preventDefault();
-
+    
     if((event.target as Element).matches("#register-form")){
+      const errorMsgElement = document.getElementById("error-msg");
+      if (errorMsgElement) {
+        errorMsgElement.innerText = "";
+      }
+
       const nombre = (event.target as HTMLFormElement).nombre.value;
       const correo = (event.target as HTMLFormElement).correo.value;
       const contrasenia = (event.target as HTMLFormElement).contrasenia.value;
       const fecha_nacimiento = (event.target as HTMLFormElement).fecha_nacimiento.value;
-      const masculino = (event.target as HTMLFormElement).masculino.checked;
-      const id_sexo = masculino ? 1 : 2;
+      const masculino = document.getElementById("masculino") as HTMLInputElement;
+      const id_sexo = masculino.checked ? 1 : 2;
+
+      const validate = validarCrearUsuario(nombre, correo, contrasenia, fecha_nacimiento);
+
+      if(validate !== true){
+        if (errorMsgElement) {
+          errorMsgElement.innerHTML = validate;
+          errorMsgElement.classList.add("text-red-500");
+        }
+        return;
+      }
 
       const response = await fetch("/api/register", {
         method: "POST",
@@ -412,6 +433,11 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
       if(response.status === 200){
         if (event.target) {
           (event.target as HTMLFormElement).reset();
+        }
+      } else {
+        if (errorMsgElement) {
+          errorMsgElement.innerHTML = data.message;
+          errorMsgElement.classList.add("text-red-500");
         }
       }
     }
