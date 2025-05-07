@@ -16,6 +16,6 @@ const config = {
   }
 }
 
-const sql = connection.connect(config);
+const sql = await connection.connect(config);
 
 export default sql;
