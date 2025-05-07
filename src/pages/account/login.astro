@@ -406,6 +406,7 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
         },
         body: JSON.stringify({ nombre, correo, contrasenia, fecha_nacimiento, id_sexo }),
       });
+      
       const data = await response.json();
       
       if(response.status === 200){

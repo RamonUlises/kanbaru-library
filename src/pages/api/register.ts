@@ -4,7 +4,6 @@ import type { APIRoute } from "astro";
 import sql from "@lib/database";
 
 export const POST: APIRoute = async ({ request }) => {
-  console.log(request.headers.get("Content-Type"))
   if(request.headers.get("Content-Type") !== "application/json") {
     return new Response(JSON.stringify({ message: "El contenido del body debe ser JSON" }), { status: 400 });
   }
@@ -16,10 +15,13 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   sql.then(async (con) => {
-    await con.query`INSERT INTO usuarios(nombre, correo, contrasenia, fecha_nacimiento, id_sexo, id_tipo_usuario) VALUES(${nombre}, ${correo}, ${contrasenia}, ${fecha_nacimiento}, ${id_sexo}, 2)`;
+    const response = await con.query`INSERT INTO usuarios(nombre, correo, contrasenia, fecha_nacimiento, id_sexo, id_tipo_usuario) VALUES(${nombre}, ${correo}, ${contrasenia}, ${fecha_nacimiento}, ${id_sexo}, 2)`;
+
+    if(response.rowsAffected.length < 1) {
+      return new Response(JSON.stringify({ message: "Error al registrar el usuario" }), { status: 500 });
+    }
   })
-  .catch((err) => {
-    console.log(err);
+  .catch(() => {
     return new Response(JSON.stringify({ message: "Error al registrar el usuario" }), { status: 500 });
   });
 
