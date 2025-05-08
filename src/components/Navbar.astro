@@ -1,6 +1,6 @@
 ---
-  import logo from '@assets/logo.png';
-  import { Image } from 'astro:assets';
+import logo from "@assets/logo.png";
+import { Image } from "astro:assets";
 ---
 
 <header>
@@ -112,27 +112,28 @@
               >Configuración</a
             >
           </li>
-          <li>
-            <a href="#"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2"
-                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-                  d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2"
-                ></path><path d="M15 12h-12l3 -3"></path><path d="M6 15l-3 -3"
-                ></path></svg
-              >Cerrar sesión</a
-            >
-          </li>
         </ul>
+        <button
+          class="cursor-pointer flex items-center gap-2 w-full h-full text-white pl-5 py-2"
+          id="btn-logout"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2"
+            ></path><path d="M15 12h-12l3 -3"></path><path d="M6 15l-3 -3"
+            ></path></svg
+          >Cerrar sesión
+        </button>
       </div>
     </ul>
   </nav>
@@ -241,12 +242,19 @@
     subMenu();
   });
 
-  document.addEventListener("click", function (event) {
+  document.addEventListener("click", async function (event) {
     const target = event.target;
     if (!(target instanceof HTMLElement)) return;
 
     if (!target.closest(".submenu") && !target.closest(".user")) {
       document.querySelector(".submenu")?.classList.remove("active");
+    }
+
+    if(target.closest("#btn-logout")){
+      const response = await fetch("/api/logout");
+      if(response.status === 200){
+        window.location.href = "/account/login";
+      }
     }
   });
 </script>
