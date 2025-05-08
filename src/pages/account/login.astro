@@ -8,16 +8,17 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
       <form id="login-form">
         <h1 class="font-bold mb-8">Inicia sesión</h1>
         <div class="input-box">
-          <input type="text" placeholder="Correo electrónico" required />
+          <input type="text" placeholder="Correo electrónico" required name="correo" />
           <i class="bx bxs-envelope"></i>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Contraseña" required />
+          <input type="password" placeholder="Contraseña" required name="contrasenia" />
           <i class="bx bxs-lock-alt"></i>
         </div>
         <div class="forgot-link mb-6 mt-4">
           <a href="/account/password">¿Has olvidado tu contraseña?</a>
         </div>
+        <p id="error-msg"></p>
         <button type="submit" class="btn">Iniciar</button>
       </form>
     </div>
@@ -26,29 +27,49 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
       <form id="register-form">
         <h1 class="font-bold">Registrate</h1>
         <div class="input-box">
-          <input type="text" placeholder="Nombres y apellidos" required name="nombre" />
+          <input
+            type="text"
+            placeholder="Nombres y apellidos"
+            required
+            name="nombre"
+          />
           <i class="bx bxs-user"></i>
         </div>
         <div class="input-box">
-          <input type="email" placeholder="Correo electrónico" required name="correo" />
+          <input
+            type="email"
+            placeholder="Correo electrónico"
+            required
+            name="correo"
+          />
           <i class="bx bxs-envelope"></i>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Contraseña" required name="contrasenia" />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            required
+            name="contrasenia"
+          />
           <i class="bx bxs-lock-alt"></i>
         </div>
         <div class="input-box">
-          <input type="text" placeholder="Fecha de nacimiento" required name="fecha_nacimiento" />
+          <input
+            type="text"
+            placeholder="Fecha de nacimiento"
+            required
+            name="fecha_nacimiento"
+          />
           <i class="bx bx-notepad"></i>
         </div>
         <div class="radio-inputs">
           <label class="radio">
-            <input type="radio" name="radio" checked id="masculino">
+            <input type="radio" name="radio" checked id="masculino" />
             <span class="name">Maculino</span>
           </label>
-              
+
           <label class="radio">
-            <input type="radio" name="radio" id="femenino">
+            <input type="radio" name="radio" id="femenino" />
             <span class="name">Femenino</span>
           </label>
         </div>
@@ -336,47 +357,47 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
     }
   }
 
-  /* From Uiverse.io by Yaya12085 */ 
-.radio-inputs {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 0.5rem;
-  background-color: #EEE;
-  box-sizing: border-box;
-  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-  padding: 0.25rem;
-  width: 300px;
-  font-size: 14px;
-  width: 100%;
-  margin-bottom: 1rem;
-}
+  /* From Uiverse.io by Yaya12085 */
+  .radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: #eee;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 
-.radio-inputs .radio {
-  flex: 1 1 auto;
-  text-align: center;
-}
+  .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
 
-.radio-inputs .radio input {
-  display: none;
-}
+  .radio-inputs .radio input {
+    display: none;
+  }
 
-.radio-inputs .radio .name {
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-  border: none;
-  padding: .5rem 0;
-  color: rgba(51, 65, 85, 1);
-  transition: all .15s ease-in-out;
-}
+  .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all 0.15s ease-in-out;
+  }
 
-.radio-inputs .radio input:checked + .name {
-  background-color: #fff;
-  font-weight: 600;
-}
+  .radio-inputs .radio input:checked + .name {
+    background-color: #fff;
+    font-weight: 600;
+  }
 </style>
 
 <script>
@@ -393,11 +414,11 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
   loginBtn.addEventListener("click", () => {
     container.classList.remove("active");
   });
-  
+
   document.addEventListener("submit", async (event) => {
     event.preventDefault();
-    
-    if((event.target as Element).matches("#register-form")){
+
+    if ((event.target as Element).matches("#register-form")) {
       const errorMsgElement = document.getElementById("error-msg");
       if (errorMsgElement) {
         errorMsgElement.innerText = "";
@@ -406,13 +427,21 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
       const nombre = (event.target as HTMLFormElement).nombre.value;
       const correo = (event.target as HTMLFormElement).correo.value;
       const contrasenia = (event.target as HTMLFormElement).contrasenia.value;
-      const fecha_nacimiento = (event.target as HTMLFormElement).fecha_nacimiento.value;
-      const masculino = document.getElementById("masculino") as HTMLInputElement;
+      const fecha_nacimiento = (event.target as HTMLFormElement)
+        .fecha_nacimiento.value;
+      const masculino = document.getElementById(
+        "masculino",
+      ) as HTMLInputElement;
       const id_sexo = masculino.checked ? 1 : 2;
 
-      const validate = validarCrearUsuario(nombre, correo, contrasenia, fecha_nacimiento);
+      const validate = validarCrearUsuario(
+        nombre,
+        correo,
+        contrasenia,
+        fecha_nacimiento,
+      );
 
-      if(validate !== true){
+      if (validate !== true) {
         if (errorMsgElement) {
           errorMsgElement.innerHTML = validate;
           errorMsgElement.classList.add("text-red-500");
@@ -420,26 +449,98 @@ import LayoutAccount from "@layouts/LayoutAccount.astro";
         return;
       }
 
+      try{
       const response = await fetch("/api/register", {
         method: "POST",
-        headers:{
-          "Content-Type": "application/json"
+        headers: {
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nombre, correo, contrasenia, fecha_nacimiento, id_sexo }),
+        body: JSON.stringify({
+          nombre,
+          correo,
+          contrasenia,
+          fecha_nacimiento,
+          id_sexo,
+        }),
       });
-      
+
       const data = await response.json();
-      
-      if(response.status === 200){
+
+      if (response.status === 200) {
         if (event.target) {
           (event.target as HTMLFormElement).reset();
+          if (errorMsgElement) {
+            errorMsgElement.innerHTML = "Usuario registrado correctamente";
+            errorMsgElement.classList.remove("text-red-500");
+            errorMsgElement.classList.add("text-green-500");
+          }
         }
       } else {
         if (errorMsgElement) {
           errorMsgElement.innerHTML = data.message;
+          errorMsgElement.classList.remove("text-green-500");
+          errorMsgElement.classList.add("text-red-500");
+        }
+      }
+      } catch {
+        if (errorMsgElement) {
+          errorMsgElement.innerHTML = "Error al registrar el usuario";
+          errorMsgElement.classList.remove("text-green-500");
           errorMsgElement.classList.add("text-red-500");
         }
       }
     }
-  })
+
+    if ((event.target as Element).matches("#login-form")) {
+      const errorMsgElement = document.getElementById("error-msg");
+      if (errorMsgElement) {
+        errorMsgElement.innerText = "";
+      }
+
+      const correo = (event.target as HTMLFormElement).correo.value;
+      const contrasenia = (event.target as HTMLFormElement).contrasenia.value;
+
+      try{
+        const response = await fetch("/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            correo,
+            contrasenia,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.status === 200) {
+          if (event.target) {
+            (event.target as HTMLFormElement).reset();
+            if (errorMsgElement) {
+              errorMsgElement.innerHTML = "Credenciales válidas";
+              errorMsgElement.classList.remove("text-red-500");
+              errorMsgElement.classList.add("text-green-500");
+
+              setTimeout(() => {
+                window.location.href = "/";
+              }, 3000);
+            }
+          }
+        } else {
+          if (errorMsgElement) {
+            errorMsgElement.innerHTML = data.message;
+            errorMsgElement.classList.remove("text-green-500");
+            errorMsgElement.classList.add("text-red-500");
+          }
+        }
+      } catch {
+        if (errorMsgElement) {
+          errorMsgElement.innerHTML = "Credenciales incorrectas";
+          errorMsgElement.classList.remove("text-green-500");
+          errorMsgElement.classList.add("text-red-500");
+        }
+      }
+    }
+  });
 </script>
