@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import type { APIRoute } from "astro";
 import { parse } from "cookie";
 import jwt from "jsonwebtoken";
