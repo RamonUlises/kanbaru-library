@@ -1,7 +1,9 @@
+export const prerender = false;
+
 import type { APIRoute } from "astro";
 import { serialize } from "cookie";
 
-export const POST: APIRoute = async () => {
+export const GET: APIRoute = async () => {
   const cookie = serialize("token", "", {
     httpOnly: true,
     path: "/",
