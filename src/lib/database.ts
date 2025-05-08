@@ -1,21 +1,37 @@
-import connection from "mssql";
+import connectionLinux, { type ConnectionPool } from "mssql";
+import os from "os";
 
-const user = import.meta.env.USER_DB;
-const password = import.meta.env.PASSWORD_DB;
-const server = 'localhost';
-const database = 'proyecto_seab';
+const isWindows = os.platform() === "win32";
 
-const config = {
-  user,
-  password,
-  server,
-  database,
-  options: {
-    encrypt: true,
-    trustServerCertificate: true,
-  }
+const database = "proyecto_seab";
+
+let sql: ConnectionPool;
+
+if (isWindows) {
+  const connectionWind = await import("mssql/msnodesqlv8");
+  const config = {
+    server: import.meta.env.SERVER_DB,
+    database,
+    driver: "msnodesqlv8",
+    options: {
+      trustedConnection: true,
+    },
+  };
+
+  sql = await connectionWind.connect(config);
+} else {
+  const config = {
+    user: import.meta.env.USER_DB,
+    password: import.meta.env.PASSWORD_DB,
+    server: import.meta.env.SERVER_DB,
+    database,
+    options: {
+      encrypt: true,
+      trustServerCertificate: true,
+    },
+  };
+
+  sql = await connectionLinux.connect(config);
 }
-
-const sql = await connection.connect(config);
 
 export default sql;
