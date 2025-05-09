@@ -1,6 +1,6 @@
 export const prerender = false;
 
-import sql from "@lib/database";
+import { getPool } from "@lib/database";
 import { validatePassword } from "@lib/encripts";
 import type { APIRoute } from "astro";
 import { serialize } from "cookie";
@@ -25,8 +25,9 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
+  const pool = await getPool(); // Aseguramos la conexión activa
   const user =
-    await sql.query`SELECT id_usuario, correo, contrasenia FROM usuarios WHERE correo = ${correo}`;
+    await pool.query`SELECT id_usuario, correo, contrasenia FROM usuarios WHERE correo = ${correo}`;
 
   if (user.recordset.length === 0) {
     return new Response(
