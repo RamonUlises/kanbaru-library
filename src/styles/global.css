@@ -18,6 +18,15 @@
   --animate-aurora: aurora 60s linear infinite;
 }
 
+*{
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-principal-500) var(--color-principal-100);
+}
+
+body{
+  overflow-x: hidden !important;
+}
+
 @keyframes aurora {
   from {
     background-position:
