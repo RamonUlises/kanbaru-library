@@ -1,0 +1,259 @@
+---
+import logo from "@assets/logo.png";
+import { Image } from "astro:assets";
+---
+
+<header class="hidden md:flex">
+  <div>
+    <a href="/">
+      <Image src={logo} alt="logo" width="90" height="45" />
+    </a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Libreria</a></li>
+      <li><a href="#">Estadisticas</a></li>
+      <li><a href="acerca">Acerca</a></li>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-user border border-white rounded-full p-[2px] user"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path
+          d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg
+      >
+      <div class="submenu">
+        <ul>
+          <li>
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-user"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path
+                  d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg
+              >Tu perfil</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-moon"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+                ></path></svg
+              >Tema</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-chart-bar-popular"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+                ></path><path
+                  d="M9 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+                ></path><path
+                  d="M15 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+                ></path><path d="M4 20h14"></path></svg
+              >Crear gráfica</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-settings"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"
+                ></path><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"
+                ></path></svg
+              >Configuración</a
+            >
+          </li>
+        </ul>
+        <button
+          class="cursor-pointer flex items-center gap-2 w-full h-full text-white pl-5 py-2"
+          id="btn-logout"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2"
+            ></path><path d="M15 12h-12l3 -3"></path><path d="M6 15l-3 -3"
+            ></path></svg
+          >Cerrar sesión
+        </button>
+      </div>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-principal-600);
+    height: 60px;
+    border-radius: 15px;
+    padding-inline: 40px;
+    padding-top: 0.3rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: var(--color-principal-600);
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  ul {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding: 5px 40px;
+  }
+  li {
+    margin-top: 0.3rem;
+  }
+  a {
+    color: #fff;
+    font-size: 1rem;
+    &:hover {
+      text-decoration: underline;
+    }
+    font-size: 1em;
+  }
+  .submenu {
+    position: absolute;
+    top: 90%;
+    right: 2%;
+    height: auto;
+    padding: 0;
+    display: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  .submenu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    z-index: 1000;
+    width: auto;
+  }
+  .submenu ul a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .submenu li {
+    width: 100%;
+    margin-top: 0;
+  }
+  .submenu img {
+    width: 1.3rem;
+    height: auto;
+    align-items: start;
+  }
+  .user {
+    position: relative;
+    cursor: pointer;
+  }
+  .submenu.active {
+    display: block;
+  }
+</style>
+<script>
+  function subMenu() {
+    const submenu = document.querySelector(".submenu");
+    if (submenu) {
+      submenu.classList.toggle("active");
+    }
+  }
+
+  document.querySelector(".user")?.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    subMenu();
+  });
+
+  document.addEventListener("click", async function (event) {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+
+    if (!target.closest(".submenu") && !target.closest(".user")) {
+      document.querySelector(".submenu")?.classList.remove("active");
+    }
+
+    if(target.closest("#btn-logout")){
+      const response = await fetch("/api/logout");
+      if(response.status === 200){
+        window.location.href = "/account/login";
+      }
+    }
+  });
+</script>
