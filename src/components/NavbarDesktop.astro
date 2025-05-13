@@ -3,7 +3,7 @@ import logo from "@assets/logo.png";
 import { Image } from "astro:assets";
 ---
 
-<header>
+<header class="hidden md:flex">
   <div>
     <a href="/">
       <Image src={logo} alt="logo" width="90" height="45" />
@@ -141,7 +141,6 @@ import { Image } from "astro:assets";
 
 <style>
   header {
-    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;

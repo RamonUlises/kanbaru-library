@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Acerca">
-  <div class="nosotros">
+  <div class="nosotros mt-8 p-4 mx-2 text-sm sm:text-[16px] md:p-8 md:mt-24 max-w-[900px] md:mx-auto md:text-xl">
     <h2>Nosotros</h2>
     <p>
       Somos un equipo de estudiantes comprometidos con la innovación tecnológica
@@ -17,8 +17,8 @@ import Layout from "../layouts/Layout.astro";
       estos problemas y optimizar la gestión del inventario.
     </p>
   </div>
-  <div class="mision-vision">
-    <div>
+  <div class="mision-vision my-24 flex flex-col px-3 py-8 gap-16 md:flex-row md:px-6 max-w-[500px] mx-auto md:max-w-[900px] md:gap-8 lg:gap-16">
+    <div class="max-w-[400px] min-w-[200px] w-full mx-auto">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -35,7 +35,8 @@ import Layout from "../layouts/Layout.astro";
         <path d="M3 6l0 13"></path>
         <path d="M12 6l0 13"></path>
         <path d="M21 6l0 13"></path>
-      </svg><h2>Misión</h2>
+      </svg>
+      <h2>Misión</h2>
       <p>
         Desarrollar soluciones tecnologicas que mejoren la gestión y el acceso a
         la información en bibliotecas, promoviendo una cultura de lectura,
@@ -43,7 +44,7 @@ import Layout from "../layouts/Layout.astro";
         Samuel Meza
       </p>
     </div>
-    <div>
+    <div class="max-w-[400px] mx-auto min-w-[200px] w-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -66,7 +67,7 @@ import Layout from "../layouts/Layout.astro";
         referente nacional en sistemas de gestión bibliotecaria
       </p>
     </div>
-    <div>
+    <div class="max-w-[400px] mx-auto min-w-[200px] w-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -108,9 +109,6 @@ import Layout from "../layouts/Layout.astro";
     background-size: cover;
     background-position: center;
     color: #fff;
-    padding: 100px 200px;
-    width: 80%;
-    margin: 150px auto;
     border-radius: 30px;
     align-content: center;
   }
@@ -120,17 +118,8 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: 20px;
   }
   .mision-vision {
-    width: 80%;
-    margin: 100px auto;
-    display: flex;
-    gap: 40px;
-    justify-content: center;
     background-color: var(--color-principal-100);
     border-radius: 30px;
-    padding: 50px 100px;
-  }
-  .mision-vision div {
-    width: 33.33%;
   }
   .mision-vision svg {
     margin: 0 auto;
@@ -139,5 +128,6 @@ import Layout from "../layouts/Layout.astro";
   }
   .mision-vision ul {
     list-style: outside;
+    padding-left: 15px;
   }
 </style>

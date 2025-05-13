@@ -1,6 +1,7 @@
 ---
 import Footer from "@components/Footer.astro";
-import Navbar from "@components/Navbar.astro";
+import NavbarDesktop from "@components/NavbarDesktop.astro";
+import NavbarMobile from "@components/NavbarMobile.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -123,7 +124,8 @@ const { title } = Astro.props;
     </script>
   </head>
   <body>
-    <Navbar />
+    <NavbarDesktop />
+    <NavbarMobile />
     <main>
       <slot />
     </main>
