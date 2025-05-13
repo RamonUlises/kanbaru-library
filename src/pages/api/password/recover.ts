@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  const password = encrypt(contrasenia);
+  const password = await encrypt(contrasenia);
 
   try {
     const pool = await getPool();
