@@ -5,7 +5,7 @@ const resend = new Resend(apiKey);
 
 export async function sendEmailRecover(email: string, token: string) {
   const { error } = await resend.emails.send({
-    from: 'R Social <r-social@r-social.nextstep-web.online>',
+    from: 'Kanbaru Library <r-social@r-social.nextstep-web.online>',
     to: [email],
     subject: 'Código de recuperación',
     text: `Tu código de recuperación es: ${token}`
