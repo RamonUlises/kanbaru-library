@@ -51,7 +51,7 @@ import { Image } from "astro:assets";
             >
           </li>
           <li>
-            <a href="#"
+            <button class="cambiar_tema"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -66,7 +66,29 @@ import { Image } from "astro:assets";
                 ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
                   d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
                 ></path></svg
-              >Tema</a
+              >Tema</button>
+              <div class="temas">
+                <ul>
+                  <li><button type="button"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2"> <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path> <path d="M7 20h10"></path> <path d="M9 16v4"></path> <path d="M15 16v4"></path> </svg>  Sistema</button></li>
+                  <li><button type="button"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2"> <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path> <path d="M6.343 17.657l-1.414 1.414"></path> <path d="M6.343 6.343l-1.414 -1.414"></path> <path d="M17.657 6.343l1.414 -1.414"></path> <path d="M17.657 17.657l1.414 1.414"></path> <path d="M4 12h-2"></path> <path d="M12 4v-2"></path> <path d="M20 12h2"></path> <path d="M12 20v2"></path> </svg>  Claro</button></li>
+                  <li><button type="button"> <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-moon"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+                ></path></svg
+              > Oscuro</button></li>
+                </ul>
+              </div>
+              </a
             >
           </li>
           <li>
@@ -226,6 +248,44 @@ import { Image } from "astro:assets";
   .submenu.active {
     display: block;
   }
+
+  .cambiar_tema {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    color: #fff;
+    cursor : pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .temas {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    right: 101%;
+    top: 20%;
+    padding: 0;
+    display: none;
+    color: #fff;
+    
+  }
+  svg{
+    stroke: #fff;
+  }
+  .temas button{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .temas.active{
+    display: block;
+  }
 </style>
 <script>
   function subMenu() {
@@ -256,4 +316,21 @@ import { Image } from "astro:assets";
       }
     }
   });
+  document.querySelector(".cambiar_tema")?.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const temas = document.querySelector(".temas");
+    if (temas) {
+      temas.classList.toggle("active");
+    }
+  });
+  document.addEventListener("click", async function (event) {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+
+    if (!target.closest(".temas") && !target.closest(".cambiar_tema")) {
+      document.querySelector(".temas")?.classList.remove("active");
+    }
+  });
+
 </script>
