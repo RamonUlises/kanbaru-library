@@ -10,7 +10,7 @@ import GraficHome from "@components/GraficHome.astro";
 ---
 
 <Layout title="Inicio">
-  <section class="flex flex-col w-full overflow-x-hidden">
+  <section class="flex flex-col w-full overflow-x-hidden dark:bg-zinc-900">
     <div
       class="min-h-[100vh] flex flex-col sm:justify-center items-center px-2 sm:gap-8 sm:pb-16 md:pb-0 md:pt-16 md:gap-4"
     >
@@ -19,21 +19,27 @@ import GraficHome from "@components/GraficHome.astro";
         alt="imagen inicio"
         class="rounded-3xl object-cover mx-auto shadow-2xl w-full max-w-[500px] md:max-w-[600px] h-[200px] mt-8 md:mt-0"
       />
-      <h2 class="text-4xl md:text-6xl font-bold text-center mt-8">
+      <h2
+        class="text-4xl md:text-6xl font-bold text-center mt-8 dark:text-white"
+      >
         Organiza el conocimiento,
         <br /> transforma la gestión
       </h2>
-      <p class="text-center font-light text-2xl md:text-3xl mt-4">
+      <p
+        class="text-center font-light text-2xl md:text-3xl mt-4 dark:text-white"
+      >
         Una biblioteca eficiente comienza con una <br /> administración inteligente.
       </p>
       <button
-        class="bg-principal-500 text-white py-2 px-4 rounded-[10px] mx-auto mt-6"
+        class="bg-principal-500 text-white py-2 px-4 rounded-[10px] mx-auto mt-6 dark:bg-zinc-700 dark:text-white hover:bg-zinc-600 hover:shadow-lg transition duration-300 ease-in-out"
       >
         Explorar libros
       </button>
     </div>
     <div class="flex justify-center items-center flex-col">
-      <h2 class="md:text-5xl font-semibold text-2xl sm:text-3xl">
+      <h2
+        class="md:text-5xl font-semibold text-2xl sm:text-3xl dark:text-white"
+      >
         Nuestra biblioteca en números
       </h2>
       <div class="flex gap-3 sm:gap-10 md:gap-24 mt-8 md:mt-16">
@@ -46,7 +52,7 @@ import GraficHome from "@components/GraficHome.astro";
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-book text-amber-400 w-10 h-10 md:w-15 md:h-15"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-book text-amber-400 w-10 h-10 md:w-15 md:h-15 dark:text-white"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
@@ -55,8 +61,10 @@ import GraficHome from "@components/GraficHome.astro";
             <path d="M12 6l0 13"></path>
             <path d="M21 6l0 13"></path>
           </svg>
-          <p class="font-medium md:text-2xl">+13k</p>
-          <p class="md:text-[20px] font-light">Libros <br /> disponibles</p>
+          <p class="font-medium md:text-2xl dark:text-white">+13k</p>
+          <p class="md:text-[20px] font-light dark:text-white">
+            Libros <br /> disponibles
+          </p>
         </div>
         <div class="flex flex-col justify-center items-center">
           <svg
@@ -67,7 +75,7 @@ import GraficHome from "@components/GraficHome.astro";
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-tag text-amber-400 w-10 h-10 md:w-15 md:h-15"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-tag text-amber-400 w-10 h-10 md:w-15 md:h-15 dark:text-white"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
@@ -75,8 +83,10 @@ import GraficHome from "@components/GraficHome.astro";
               d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z"
             ></path>
           </svg>
-          <p class="font-medium md:text-2xl">10</p>
-          <p class="md:text-[20px] font-light">Categorias <br /> tematicas</p>
+          <p class="font-medium md:text-2xl dark:text-white">10</p>
+          <p class="md:text-[20px] font-light dark:text-white">
+            Categorias <br /> tematicas
+          </p>
         </div>
         <div class="flex flex-col justify-center items-center">
           <svg
@@ -87,7 +97,7 @@ import GraficHome from "@components/GraficHome.astro";
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-users text-amber-400 w-10 h-10 md:w-15 md:h-15"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-users text-amber-400 w-10 h-10 md:w-15 md:h-15 dark:text-white"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
@@ -95,8 +105,10 @@ import GraficHome from "@components/GraficHome.astro";
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
           </svg>
-          <p class="font-medium md:text-2xl">+10k</p>
-          <p class="md:text-[20px] font-light">Usuarios <br /> activos</p>
+          <p class="font-medium md:text-2xl dark:text-white">+10k</p>
+          <p class="md:text-[20px] font-light dark:text-white">
+            Usuarios <br /> activos
+          </p>
         </div>
         <div class="flex flex-col justify-center items-center">
           <svg
@@ -107,7 +119,7 @@ import GraficHome from "@components/GraficHome.astro";
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-reload text-amber-400 w-10 h-10 md:w-15 md:h-15"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-reload text-amber-400 w-10 h-10 md:w-15 md:h-15 dark:text-white"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path
@@ -115,22 +127,28 @@ import GraficHome from "@components/GraficHome.astro";
             ></path>
             <path d="M20 4v5h-5"></path>
           </svg>
-          <p class="md:text-[20px] font-light mt-6">
+          <p class="md:text-[20px] font-light mt-6 dark:text-white">
             Actividades <br /> recurrentes
           </p>
         </div>
       </div>
-    <GraficHome server:defer />
+      <GraficHome server:defer />
       <div class="flex flex-col gap-10 text-center">
-        <h3 class="font-semibold md:text-5xl mt-16 text-2xl sm:text-3xl">Beneficios</h3>
+        <h3
+          class="font-semibold md:text-5xl mt-16 text-2xl sm:text-3xl dark:text-white"
+        >
+          Beneficios
+        </h3>
         <div
           class="flex mx-auto md:gap-24 gap-10 text-center mt-4 flex-col md:flex-row"
         >
           <div
-            class="flex flex-col gap-8 py-6 px-6 h-[300px] w-full max-w-[350px] bg-white rounded-3xl shadow-2xl"
+            class="flex flex-col gap-8 py-6 px-6 h-[300px] w-full max-w-[350px] bg-white rounded-3xl shadow-2xl dark:shadow-gray-700  dark:bg-zinc-800"
           >
-            <h3 class="font-semibold text-[18px]">Optimización de recursos</h3>
-            <p class="font-light text-[16px]">
+            <h3 class="font-semibold text-[18px] dark:text-white">
+              Optimización de recursos
+            </h3>
+            <p class="font-light text-[16px] dark:text-white">
               Mejor control del inventario y disponibilidad de libros en tiempo
               real. Gracias al sistema, el personal puede registrar, actualizar
               y monitorear los libros de manera rápida, reduciendo pérdidas y
@@ -138,12 +156,12 @@ import GraficHome from "@components/GraficHome.astro";
             </p>
           </div>
           <div
-            class="flex flex-col gap-8 py-6 px-6 h-[300px] w-[350px] bg-white rounded-3xl shadow-2xl"
+            class="flex flex-col gap-8 py-6 px-6 h-[300px] w-[350px] bg-white rounded-3xl shadow-2xl   dark:shadow-gray-700  dark:bg-zinc-800"
           >
-            <h3 class="font-semibold text-[18px]">
+            <h3 class="font-semibold text-[18px] dark:text-white">
               Toma de Decisiones Inteligente
             </h3>
-            <p class="font-light text-[16px]">
+            <p class="font-light text-[16px] dark:text-white">
               Acceso a estadísticas claras sobre préstamos y libros más
               consultados. Los datos visuales ayudan a identificar tendencias de
               lectura y tomar decisiones informadas sobre adquisiciones o
@@ -153,17 +171,24 @@ import GraficHome from "@components/GraficHome.astro";
         </div>
       </div>
       <div class="flex flex-col gap-10 text-center my-16 w-full">
-        <h3 class="font-semibold text-2xl md:text-5xl">Testimonios</h3>
-        <div class="flex flex-col text-center p-4 bg-principal-100 rounded-2xl gap-4 w-full md:flex-row max-w-[500px] md:max-w-[850px] mx-auto md:p-8">
+        <h3 class="font-semibold text-2xl md:text-5xl dark:text-white">
+          Testimonios
+        </h3>
+        <div
+          class="flex flex-col text-center p-4 bg-principal-100 rounded-2xl gap-4 w-full md:flex-row max-w-[500px] md:max-w-[850px] mx-auto md:p-8 dark:bg-zinc-800 shadow-2xl dark:shadow-gray-700"
+        >
           <div class="flex flex-col gap-2 items-center max-w-[350px] mx-auto">
             <Image
               src={Image2}
               alt="imagen inicio"
               class="rounded-full mx-auto shadow-2xl object-cover w-[200px] h-[200px]"
             />
-            <p class="font-light">"Desde que usamos SEAB, encontrar y organizar los libros es mucho más fácil."</p>
-            <p class="text-center font-semibold">Ana M.</p>
-            <p class="text-center font-light">Bibliotecaria</p>
+            <p class="font-light dark:text-white">
+              "Desde que usamos SEAB, encontrar y organizar los libros es mucho
+              más fácil."
+            </p>
+            <p class="text-center font-semibold dark:text-white">Ana M.</p>
+            <p class="text-center font-light dark:text-white">Bibliotecaria</p>
           </div>
           <div class="flex flex-col gap-2 items-center max-w-[350px] mx-auto">
             <Image
@@ -171,9 +196,12 @@ import GraficHome from "@components/GraficHome.astro";
               alt="imagen inicio"
               class="rounded-full mx-auto shadow-2xl object-cover w-[200px] h-[200px]"
             />
-            <p class="font-light">"La aplicación ha optimizado la gestión de nuestra colección de manera significativa."</p>
-            <p class="text-center font-semibold">David P.</p>
-            <p class="text-center font-light">Coordinador</p>
+            <p class="font-light dark:text-white">
+              "La aplicación ha optimizado la gestión de nuestra colección de
+              manera significativa."
+            </p>
+            <p class="text-center font-semibold dark:text-white">David P.</p>
+            <p class="text-center font-light dark:text-white">Coordinador</p>
           </div>
           <div class="flex flex-col gap-2 items-center max-w-[350px] mx-auto">
             <Image
@@ -181,9 +209,14 @@ import GraficHome from "@components/GraficHome.astro";
               alt="imagen inicio"
               class="rounded-full mx-auto shadow-2xl object-cover w-[200px] h-[200px]"
             />
-            <p class="font-light">"SEAB es una herramienta indispensable para nuestro trabajo diario."</p>
-            <p class="text-center font-semibold">Laura G.</p>
-            <p class="text-center font-light">Asistente de la Biblioteca</p>
+            <p class="font-light dark:text-white">
+              "SEAB es una herramienta indispensable para nuestro trabajo
+              diario."
+            </p>
+            <p class="text-center font-semibold dark:text-white">Laura G.</p>
+            <p class="text-center font-light dark:text-white">
+              Asistente de la Biblioteca
+            </p>
           </div>
         </div>
       </div>

@@ -114,26 +114,26 @@ const { title } = Astro.props;
       }
     </style>
     <script>
-      import { checkTheme } from "@utils/temaPage";
+     // import { checkTheme } from "@utils/temaPage";
 
-      const checkAuth = async () => {
-        const response = await fetch("/api/session");
-        const data = await response.json();
-        if(!data.authenticated) return window.location.href = "/account/login";
-      };
+    //  const checkAuth = async () => {
+     //   const response = await fetch("/api/session");
+     //   const data = await response.json();
+     //   if(!data.authenticated) return window.location.href = "/account/login";
+     // };
+//
+     // await checkAuth();
+     // checkTheme();
+//
+      //window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+      //  if(localStorage.getItem('tema') !== 'sistema') return;
 
-      await checkAuth();
-      checkTheme();
-
-      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-        if(localStorage.getItem('tema') !== 'sistema') return;
-
-        if(event.matches){
-          document.body.classList.add('dark');
-        } else {
-          document.body.classList.remove('dark');
-        }
-      });
+       // if(event.matches){
+      //    document.body.classList.add('dark');
+      //  } else {
+       //   document.body.classList.remove('dark');
+       // }
+     // });
     </script>
   </head>
   <body>

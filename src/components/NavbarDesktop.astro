@@ -3,13 +3,13 @@ import logo from "@assets/logo.png";
 import { Image } from "astro:assets";
 ---
 
-<header class="hidden md:flex">
-  <div>
+<header class="hidden md:flex mt-4">
+  <div class="bg-principal-600 dark:bg-zinc-800 ">
     <a href="/">
       <Image src={logo} alt="logo" width="90" height="45" />
     </a>
   </div>
-  <nav class="bg-principal-600 dark:bg-zinc-900">
+  <nav class="bg-principal-600 dark:bg-zinc-800">
     <ul>
       <li><a href="#">Libreria</a></li>
       <li><a href="#">Estadisticas</a></li>
@@ -29,7 +29,7 @@ import { Image } from "astro:assets";
           d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path
           d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg
       >
-      <div class="submenu">
+      <div class="submenu bg-principal-600 dark:bg-zinc-800">
         <ul>
           <li>
             <a href="#"
@@ -67,7 +67,7 @@ import { Image } from "astro:assets";
                   d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
                 ></path></svg
               >Tema</button>
-              <div class="temas">
+              <div class="temas bg-principal-600 dark:bg-zinc-800">
                 <ul>
                   <li>
                     <button id="tema-sistema" type="button"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2"> <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path> <path d="M7 20h10"></path> <path d="M9 16v4"></path> <path d="M15 16v4"></path> </svg>  Sistema</button>
@@ -182,7 +182,6 @@ import { Image } from "astro:assets";
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: var(--color-principal-600);
     height: 60px;
     border-radius: 15px;
     padding-inline: 40px;
