@@ -1,0 +1,75 @@
+<div>
+  <h2 class="md:text-5xl font-semibold text-2xl sm:text-3xl text-center">
+    Cantidad de libros por categoría
+  </h2>
+  <div class="flex justify-center items-center max-w-[650px] mx-auto my-8">
+    <canvas id="myChart"></canvas>
+  </div>
+</div>
+
+<script>
+  export interface Category {
+    categoria: string;
+    cantidad: number;
+  }
+
+  import type { ChartConfiguration } from "chart.js";
+  import Chart from "chart.js/auto";
+
+  const response = await fetch("/api/books/countcategories");
+  const categories: Category[] = await response.json();
+
+  const dataCount = categories.map(c => c.cantidad);
+
+  const data = {
+    labels: categories.map(c => c.categoria),
+    datasets: [
+      {
+        label: "Libros",
+        data: dataCount,
+        backgroundColor: [
+          "#7B5E53",
+          "#A0826F",
+          "#937263",
+          "#654E47",
+          "#2C211E",
+          "#53403B",
+          "#DDD5CB",
+          "#C7B8AA",
+          "#EFEBE5",
+          "#B09886",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
+
+  const plugin = {
+    id: "customCanvasBackgroundColor",
+    beforeDraw: (chart: any, args: any, options: any) => {
+      const { ctx } = chart;
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-over";
+      ctx.fillStyle = options.color || "#ffffff";
+      ctx.fillRect(0, 0, chart.width, chart.height);
+      ctx.restore();
+    },
+  };
+
+  const config: ChartConfiguration = {
+    type: "doughnut",
+    data: data,
+    options: {},
+    plugins: [plugin],
+  };
+
+  const $canvas = document.getElementById("myChart") as HTMLCanvasElement;
+  $canvas.width = 400;
+  $canvas.height = 400;
+  const ctx = $canvas.getContext("2d");
+  
+  if (!ctx) {
+    throw new Error("Failed to get canvas context");
+  }
+  new Chart(ctx, config);
+</script>
