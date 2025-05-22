@@ -1,36 +1,43 @@
 ---
 import Layout from "@layouts/Layout.astro";
 ---
-<Layout title="Perfil">
+<Layout title="Perfil" >
   <section>
 
     <div class="datos_usuario">
 
-      <div class="foto_usuario"><img src="https://th.bing.com/th/id/OIP.8xpERVMOpseDTK8oTEOsUAHaHa?cb=iwp2&rs=1&pid=ImgDetMain" alt="Tu foto de perfil">
-        <button type="button" class="btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#000000"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-            <path d="M13.5 6.5l4 4" />
-          </svg>
-        </button>
+      <div>
+        <div class="foto_usuario"><img src="https://th.bing.com/th/id/OIP.8xpERVMOpseDTK8oTEOsUAHaHa?cb=iwp2&rs=1&pid=ImgDetMain" alt="Tu foto de perfil">
+          <button type="button" class="btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+              <path d="M13.5 6.5l4 4" />
+            </svg>
+          </button>
+        </div>
+
+        <p class="nombre_usuario">John Doe</p>
+
       </div>
+
+      <button type="button" class="editar_perfil">Editar perfil</button>
 
       <form action="" class="formulario">
       <label for="nombre">Nombre</label>
       <input type="text" placeholder="Nombre" name="nombre" id="nombre"/>
 
       <label for="biografia">Biografía</label>
-      <input type="text" name="biografia" placeholder="Añade algo a tu biografía" id="biografia"/>
+      <textarea name="biografia" id="biografia" placeholder="Añade algo a tu biografía"></textarea>
 
       <label for="telefono">Teléfono</label>
       <input type="text" name="telefono" placeholder="Teléfono" id="telefono"/>
@@ -92,6 +99,7 @@ import Layout from "@layouts/Layout.astro";
 
 <style>
 
+
   section {
     display: grid;
     gap: 50px;
@@ -101,9 +109,10 @@ import Layout from "@layouts/Layout.astro";
   }
 
   .formulario{
-    width: auto;
+    width: 256px;
     display: flex;
     flex-direction: column;
+    display: none;
   }
 
   .datos_usuario  {
@@ -116,35 +125,34 @@ import Layout from "@layouts/Layout.astro";
   
   .datos_usuario label {
     font-weight: bold;
-    font-size: 20px;
-    margin: 10px 0 0 0;
+    font-size: 16px;
+    margin: 8px 0 0 0;
+    display: block;
   }
-  .datos_usuario input {
-    width: 350px;
-    height: 50px;
+  .datos_usuario input, select, textarea {
+    width: 100%;
+    height: 40px;
     background-color: var(--color-principal-100);
     border: 1px solid var(--color-principal-700);
     border-radius: 10px;
     padding: 0 20px;
+    font-size: 14px;
     
     &:focus {
       outline: 2px solid var(--color-principal-700);
     }
+  }
+  .datos_usuario textarea {
+    height: 100px;
+    resize: vertical;
+    padding: 10px 20px;
+    min-height: 40px;
   }
   .flecha{
     width: 100%;
     position: relative;
   }
   .flecha select{
-    width: 100%;
-    height: 50px;
-    padding: 0 40px 0 20px;
-    background-color: var(--color-principal-100);
-    border: 1px solid var(--color-principal-700);
-    border-radius: 10px;
-    font-size: 16px;
-    font-family: inherit;
-
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -152,7 +160,7 @@ import Layout from "@layouts/Layout.astro";
 
   .datos_usuario select {
     width: 100%;
-    height: 50px;
+    height: 40px;
 
     background-color: var(--color-principal-100);
     border: 1px solid var(--color-principal-700);
@@ -160,7 +168,6 @@ import Layout from "@layouts/Layout.astro";
     padding: 0 20px;
     color: rgba(0, 0, 0, 0.5);
     
-
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
     background-repeat: no-repeat;
     background-position: right 20px center;
@@ -174,7 +181,7 @@ import Layout from "@layouts/Layout.astro";
   .mas_datos {
     grid-area: mas;
     padding: 100px 0;
-
+    height: 900px;
   }
   .libros{
     width: 90%;
@@ -189,8 +196,8 @@ import Layout from "@layouts/Layout.astro";
     margin-block: 10px;
   }
   .foto_usuario {
-    width: 350px;
-    height: 350px;
+    width: 256px;
+    height: 256px;
     background-color: var(--color-principal-100);
     border-radius: 50%;
     border: 2px solid var(--color-principal-700);
@@ -217,4 +224,35 @@ import Layout from "@layouts/Layout.astro";
       border: 1px solid var(--color-principal-800);
     }
   }
+  .nombre_usuario {
+    font-size: 20px;
+    margin-block: 10px;
+  }
+    .editar_perfil {
+    width: 256px;
+    height: 40px;
+    background-color: var(--color-principal-200);
+    border: 1px solid var(--color-principal-700);
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--color-principal-900);
+    
+    &:hover {
+      background-color: var(--color-principal-300);
+      border: 1px solid var(--color-principal-800);
+    }
+  }
 </style>
+<script>
+  const boton = document.querySelector('.editar_perfil');
+  const formulario = document.querySelector('.formulario');
+  const nombre_usuario = document.querySelector('.nombre_usuario');
+
+  boton.addEventListener('click', () => {
+    formulario.style.display = 'block';
+    boton.style.display = 'none';   
+    nombre_usuario.style.display = 'none';
+  });
+</script>
