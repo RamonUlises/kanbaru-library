@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Estadísticas">
+  <section style="padding-top:110px" class="px-6 pb-16 max-w-7xl mx-auto space-y-16 w-full overflow-x-hidden dark:bg-zinc-900">
+
+    <!-- Gráfico 1: Libros por Categoría -->
+    <div class="card-estadistica">
+      <h2 class="text-3xl font-bold mb-7">Libros por Categoría</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+        <!-- Columna izquierda: Gráfico + Leyendas -->
+        <div class="flex flex-col items-center">
+          <div class="w-[400px] h-[400px] relative">
+            <canvas id="graficoCategorias" class="w-full h-full"></canvas>
+          </div>
+          <div id="leyendasCategorias" class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-center max-w-[400px]">
+            <!-- leyendas dinámicas -->
+          </div>
+        </div>
+
+        <!-- Columna derecha: Tabla + Interpretación -->
+        <div class="flex flex-col gap-6">
+          <!-- Tabla de datos por categoría -->
+          <div class="overflow-x-auto">
+            <h3 class="text-lg font-semibold mb-2">Datos Detallados</h3>
+            <table class="min-w-full text-sm text-left border dark:border-zinc-600">
+              <thead class="bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-200">
+                <tr>
+                  <th class="px-3 py-2 border dark:border-zinc-600">Categoría</th>
+                  <th class="px-3 py-2 border dark:border-zinc-600 text-center">Total de Libros</th>
+                  <th class="px-3 py-2 border dark:border-zinc-600 text-center">Porcentaje</th>
+                </tr>
+              </thead>
+              <tbody id="tablaCategorias" class="text-zinc-800 dark:text-zinc-100">
+                <!-- contenido dinámico -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Interpretación -->
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Interpretación</h3>
+            <div class="text-base text-gray-800 dark:text-gray-200 space-y-3 text-justify leading-relaxed">
+              <p>
+                Este análisis examina la distribución de libros físicos disponibles en la biblioteca según su categoría o temática (por ejemplo, literatura, ciencias sociales, tecnología, infantil, etc.). Permite evaluar si hay un equilibrio adecuado entre las distintas áreas del conocimiento y si la colección responde a las necesidades de los usuarios. También ayuda a detectar posibles desequilibrios o áreas que requieren reforzamiento, actualización o depuración.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráfico 2: Préstamos Mensuales Promedio por Grupo de Edad -->
+    <div class="card-estadistica">
+      <h2 class="text-2xl font-bold mb-6">Préstamos Mensuales Promedio por Grupo de Edad</h2>
+
+      <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start min-h-[500px]">
+
+        <!-- Izquierda: Tabla + Interpretación -->
+        <div class="w-full md:w-1/2 flex flex-col gap-6">
+          <div class="overflow-x-auto">
+            <h3 class="text-lg font-semibold mb-2">Datos Detallados</h3>
+            <table class="w-full text-sm text-left border dark:border-zinc-600">
+              <thead class="bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-200">
+                <tr>
+                  <th class="px-3 py-2 border dark:border-zinc-600">Grupo de Edad</th>
+                  <th class="px-3 py-2 border dark:border-zinc-600 text-center">Promedio Mensual</th>
+                </tr>
+              </thead>
+              <tbody id="tablaEdad" class="text-zinc-800 dark:text-zinc-100">
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Interpretación</h3>
+            <p class="text-base text-gray-800 dark:text-gray-300 text-justify leading-relaxed">
+              Este análisis muestra el promedio mensual de préstamos realizados por usuarios agrupados por edades. Permite identificar qué segmentos de edad hacen un mayor uso de la biblioteca durante el año. Esto resulta útil para orientar campañas, seleccionar colecciones específicas o enfocar actividades de extensión bibliotecaria hacia los grupos más activos o los menos participativos. Detectar una baja participación en ciertos rangos etarios también puede ser una oportunidad para crear programas de incentivo o reforzar servicios enfocados.
+            </p>
+          </div>
+        </div>
+
+        <!-- Derecha: Gráfico -->
+        <div class="w-full md:w-1/2 flex justify-center items-center">
+          <div class="w-full max-w-[600px] h-[450px]">
+            <canvas id="graficoPrestamosEdad" class="w-full h-full block" width="600" height="450"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráfico 3: Comparativo de Préstamos Mensuales por Año -->
+<div class="card-estadistica">
+  <h2 class="text-2xl font-bold mb-6">Comparativo de Préstamos Mensuales por Año</h2>
+
+  <!-- Contenido: gráfico y tabla -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+    <!-- Gráfico -->
+    <div class="w-full flex justify-center items-center">
+      <div class="w-full max-w-[650px] h-[500px]">
+        <canvas id="graficoPrestamosAnuales" width="650" height="500" class="w-full h-full block"></canvas>
+      </div>
+    </div>
+
+    <!-- Tabla + Interpretación -->
+    <div class="flex flex-col gap-6">
+
+      <!-- Tabla -->
+      <div class="overflow-x-auto">
+        <h3 class="text-lg font-semibold mb-2">Datos por Mes y Año</h3>
+        <table class="w-full text-sm text-left border dark:border-zinc-600">
+          <thead id="cabeceraAnuales" class="bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-200"></thead>
+          <tbody id="tablaPrestamosAnuales" class="text-zinc-800 dark:text-zinc-100"></tbody>
+        </table>
+      </div>
+
+      <!-- Interpretación -->
+<div>
+  <h3 class="text-xl font-semibold mb-3">Interpretación</h3>
+  <p class="text-base text-gray-800 dark:text-gray-300 text-justify leading-relaxed">
+    Este gráfico muestra la evolución mensual de los préstamos durante los dos últimos años registrados en el sistema. Esta comparación permite identificar cambios recientes en el comportamiento de los usuarios, detectar patrones estacionales como aumentos durante ciertos meses (vacaciones, inicio de clases, etc.), y evaluar si ha habido crecimiento o disminución en la demanda de servicios bibliotecarios en el último año.
+  </p>
+  <p class="text-base text-gray-800 dark:text-gray-300 text-justify leading-relaxed mt-2">
+    Al centrarse en los datos más actuales, este análisis es útil para tomar decisiones estratégicas a corto plazo, como refuerzo de personal, campañas de promoción, o adquisición de nuevos materiales.
+  </p>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Puedes seguir agregando otros gráficos aquí -->
+
+  </section>
+
+  <!-- Chart.js CDN + Script de estadísticas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="/scripts/estadisticas.js"></script>
+</Layout>
