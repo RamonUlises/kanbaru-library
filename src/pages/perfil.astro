@@ -33,29 +33,29 @@ import Layout from "@layouts/Layout.astro";
       <button type="button" class="editar_perfil bg-principal-200 text-principal-700 dark:bg-zinc-800 dark:text-white hover:bg-principal-300 dark:hover:bg-zinc-600 transition-colors duration-500">Editar perfil</button>
 
       <form action="" class="formulario">
-      <label for="nombre">Nombre</label>
-      <input type="text" placeholder="Nombre" name="nombre" id="nombre"/>
+      <label for="nombre" class="dark:text-white">Nombre</label>
+      <input type="text" placeholder="Nombre" name="nombre" id="nombre" class="bg-principal-100 dark:bg-zinc-800 dark:text-white"/>
 
-      <label for="biografia">Biografía</label>
-      <textarea name="biografia" id="biografia" placeholder="Añade algo a tu biografía"></textarea>
+      <label for="biografia" class="dark:text-white">Biografía</label>
+      <textarea name="biografia" id="biografia" placeholder="Añade algo a tu biografía" class="bg-principal-100 dark:bg-zinc-800 dark:text-white"></textarea>
 
-      <label for="telefono">Teléfono</label>
-      <input type="text" name="telefono" placeholder="Teléfono" id="telefono"/>
+      <label for="telefono" class="dark:text-white">Teléfono</label>
+      <input type="text" name="telefono" placeholder="Teléfono" id="telefono" class="bg-principal-100 dark:bg-zinc-800 dark:text-white"/>
 
-      <label for="cedula">Cédula de identidad</label>
-      <input type="text" name="cedula" placeholder="Cédula de identidad" id="cedula"/>
+      <label for="cedula" class="dark:text-white">Cédula de identidad</label>
+      <input type="text" name="cedula" placeholder="Cédula de identidad" id="cedula" class="bg-principal-100 dark:bg-zinc-800 dark:text-white"/>
 
-      <label for="sexo">Sexo</label>
+      <label for="sexo" class="dark:text-white">Sexo</label>
       <div class="flecha">
-        <select name="sexo" id="sexo">
+        <select name="sexo" id="sexo" class="bg-principal-100 dark:bg-zinc-800 dark:text-white dark:border-transparent">
           <option value="masculino">Masculino</option>
           <option value="femenino">Femenino</option>
         </select>
       </div>
 
-      <label for="pais">País</label>
+      <label for="pais" class="dark:text-white">País</label>
       <div class="flecha">
-        <select name="pais" id="pais">
+        <select name="pais" id="pais" class="bg-principal-100 dark:bg-zinc-800 dark:text-white dark:border-transparent">
           <option value="nicaragua">Nicaragua</option>
           <option value="venezuela">Venezuela</option>
           <option value="colombia">Colombia</option>
@@ -64,9 +64,9 @@ import Layout from "@layouts/Layout.astro";
         </select>
       </div>
 
-      <label for="departamento">Departamento</label>
+      <label for="departamento" class="dark:text-white">Departamento</label>
       <div class="flecha">
-        <select name="departamento" id="departamento">
+        <select name="departamento" id="departamento" class="bg-principal-100 dark:bg-zinc-800 dark:text-white dark:border-transparent">
           <option value="masaya">Masaya</option>
           <option value="granada">Granada</option>
           <option value="carazo">Carazo</option>
@@ -75,9 +75,9 @@ import Layout from "@layouts/Layout.astro";
         </select>
       </div>
       
-      <label for="municipio">Municipio</label>
+      <label for="municipio" class="dark:text-white">Municipio</label>
       <div class="flecha">
-        <select name="municipio" id="municipio">
+        <select name="municipio" id="municipio" class="bg-principal-100 dark:bg-zinc-800 dark:text-white dark:border-transparent">
           <option value="masaya">Masaya</option>
           <option value="granada">Granada</option>
           <option value="carazo">Carazo</option>
@@ -131,14 +131,12 @@ import Layout from "@layouts/Layout.astro";
   .datos_usuario input, select, textarea {
     width: 100%;
     height: 40px;
-    background-color: var(--color-principal-100);
-    border: 1px solid var(--color-principal-700);
     border-radius: 10px;
     padding: 0 20px;
     font-size: 14px;
     
     &:focus {
-      outline: 2px solid var(--color-principal-700);
+      outline: none;
     }
   }
   .datos_usuario textarea {
@@ -160,9 +158,6 @@ import Layout from "@layouts/Layout.astro";
   .datos_usuario select {
     width: 100%;
     height: 40px;
-
-    background-color: var(--color-principal-100);
-    border: 1px solid var(--color-principal-700);
     border-radius: 10px;
     padding: 0 20px;
     color: rgba(0, 0, 0, 0.5);
@@ -173,7 +168,7 @@ import Layout from "@layouts/Layout.astro";
     background-size: 20px;
     
     &:focus {
-      outline: 2px solid var(--color-principal-700);
+      outline: none;
     }
   }
 
