@@ -328,6 +328,7 @@ import { Image } from "astro:assets";
 
     if(target.closest("#tema-sistema") || target.closest("#tema-claro") || target.closest("#tema-oscuro")){
       const tema = target.closest("#tema-sistema") ? "sistema" : target.closest("#tema-claro") ? "claro" : "oscuro";
+      console.log("cambiando tema", tema);
       
       cambiarTema(tema);
     }

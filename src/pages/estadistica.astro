@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Gráfico 1: Libros por Categoría -->
     <div class="card-estadistica">
-      <h2 class="text-3xl font-bold mb-7">Libros por Categoría</h2>
+      <h2 class="text-3xl font-bold mb-7 dark:text-white">Libros por Categoría</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
 
@@ -25,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
         <div class="flex flex-col gap-6">
           <!-- Tabla de datos por categoría -->
           <div class="overflow-x-auto">
-            <h3 class="text-lg font-semibold mb-2">Datos Detallados</h3>
+            <h3 class="text-lg font-semibold mb-2 dark:text-white">Datos Detallados</h3>
             <table class="min-w-full text-sm text-left border dark:border-zinc-600">
               <thead class="bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-200">
                 <tr>
@@ -42,7 +42,7 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Interpretación -->
           <div>
-            <h3 class="text-xl font-semibold mb-3">Interpretación</h3>
+            <h3 class="text-xl font-semibold mb-3 dark:text-white">Interpretación</h3>
             <div class="text-base text-gray-800 dark:text-gray-200 space-y-3 text-justify leading-relaxed">
               <p>
                 Este análisis examina la distribución de libros físicos disponibles en la biblioteca según su categoría o temática (por ejemplo, literatura, ciencias sociales, tecnología, infantil, etc.). Permite evaluar si hay un equilibrio adecuado entre las distintas áreas del conocimiento y si la colección responde a las necesidades de los usuarios. También ayuda a detectar posibles desequilibrios o áreas que requieren reforzamiento, actualización o depuración.
@@ -55,14 +55,14 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Gráfico 2: Préstamos Mensuales Promedio por Grupo de Edad -->
     <div class="card-estadistica">
-      <h2 class="text-2xl font-bold mb-6">Préstamos Mensuales Promedio por Grupo de Edad</h2>
+      <h2 class="text-2xl font-bold mb-6 dark:text-white">Préstamos Mensuales Promedio por Grupo de Edad</h2>
 
       <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start min-h-[500px]">
 
         <!-- Izquierda: Tabla + Interpretación -->
         <div class="w-full md:w-1/2 flex flex-col gap-6">
           <div class="overflow-x-auto">
-            <h3 class="text-lg font-semibold mb-2">Datos Detallados</h3>
+            <h3 class="text-lg font-semibold mb-2 dark:text-white">Datos Detallados</h3>
             <table class="w-full text-sm text-left border dark:border-zinc-600">
               <thead class="bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-200">
                 <tr>
@@ -76,7 +76,7 @@ import Layout from "../layouts/Layout.astro";
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold mb-3">Interpretación</h3>
+            <h3 class="text-xl font-semibold mb-3 dark:text-white">Interpretación</h3>
             <p class="text-base text-gray-800 dark:text-gray-300 text-justify leading-relaxed">
               Este análisis muestra el promedio mensual de préstamos realizados por usuarios agrupados por edades. Permite identificar qué segmentos de edad hacen un mayor uso de la biblioteca durante el año. Esto resulta útil para orientar campañas, seleccionar colecciones específicas o enfocar actividades de extensión bibliotecaria hacia los grupos más activos o los menos participativos. Detectar una baja participación en ciertos rangos etarios también puede ser una oportunidad para crear programas de incentivo o reforzar servicios enfocados.
             </p>
@@ -94,7 +94,7 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Gráfico 3: Comparativo de Préstamos Mensuales por Año -->
 <div class="card-estadistica">
-  <h2 class="text-2xl font-bold mb-6">Comparativo de Préstamos Mensuales por Año</h2>
+  <h2 class="text-2xl font-bold mb-6 dark:text-white">Comparativo de Préstamos Mensuales por Año</h2>
 
   <!-- Contenido: gráfico y tabla -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -111,7 +111,7 @@ import Layout from "../layouts/Layout.astro";
 
       <!-- Tabla -->
       <div class="overflow-x-auto">
-        <h3 class="text-lg font-semibold mb-2">Datos por Mes y Año</h3>
+        <h3 class="text-lg font-semibold mb-2 dark:text-white">Datos por Mes y Año</h3>
         <table class="w-full text-sm text-left border dark:border-zinc-600">
           <thead id="cabeceraAnuales" class="bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-200"></thead>
           <tbody id="tablaPrestamosAnuales" class="text-zinc-800 dark:text-zinc-100"></tbody>
@@ -120,7 +120,7 @@ import Layout from "../layouts/Layout.astro";
 
       <!-- Interpretación -->
 <div>
-  <h3 class="text-xl font-semibold mb-3">Interpretación</h3>
+  <h3 class="text-xl font-semibold mb-3 dark:text-white">Interpretación</h3>
   <p class="text-base text-gray-800 dark:text-gray-300 text-justify leading-relaxed">
     Este gráfico muestra la evolución mensual de los préstamos durante los dos últimos años registrados en el sistema. Esta comparación permite identificar cambios recientes en el comportamiento de los usuarios, detectar patrones estacionales como aumentos durante ciertos meses (vacaciones, inicio de clases, etc.), y evaluar si ha habido crecimiento o disminución en la demanda de servicios bibliotecarios en el último año.
   </p>

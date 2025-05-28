@@ -2,23 +2,23 @@
 import Layout from "@layouts/Layout.astro";
 ---
 <Layout title="Perfil" >
-  <section>
-
+  <section class="dark:bg-zinc-900">
     <div class="datos_usuario">
 
       <div>
         <div class="foto_usuario"><img src="https://th.bing.com/th/id/OIP.8xpERVMOpseDTK8oTEOsUAHaHa?cb=iwp2&rs=1&pid=ImgDetMain" alt="Tu foto de perfil">
-          <button type="button" class="btn">
+          <button type="button" class="btn bg-principal-200 border border-principal-700 dark:bg-zinc-700 dark:border-transparent">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
               height="32"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#000000"
+              stroke="currentColor"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
+              class="dark:text-white"
             >
               <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
               <path d="M13.5 6.5l4 4" />
@@ -26,11 +26,11 @@ import Layout from "@layouts/Layout.astro";
           </button>
         </div>
 
-        <p class="nombre_usuario">John Doe</p>
+        <p class="nombre_usuario dark:text-white">John Doe</p>
 
       </div>
 
-      <button type="button" class="editar_perfil">Editar perfil</button>
+      <button type="button" class="editar_perfil bg-principal-200 text-principal-700 dark:bg-zinc-800 dark:text-white hover:bg-principal-300 dark:hover:bg-zinc-600 transition-colors duration-500">Editar perfil</button>
 
       <form action="" class="formulario">
       <label for="nombre">Nombre</label>
@@ -89,11 +89,10 @@ import Layout from "@layouts/Layout.astro";
   </div>
 
     <div class="mas_datos">
-      <div class="libros"><p>Proximamente</p></div>
-      <div class="libros"><p>Proximamente</p></div>
-      <div class="libros"><p>Proximamente</p></div>
+      <div class="libros dark:bg-zinc-800 bg-principal-100 dark:text-white"><p>Proximamente</p></div>
+      <div class="libros dark:bg-zinc-800 bg-principal-100 dark:text-white"><p>Proximamente</p></div>
+      <div class="libros dark:bg-zinc-800 bg-principal-100 dark:text-white"><p>Proximamente</p></div>
     </div>
-
   </section>
 </Layout>
 
@@ -187,7 +186,6 @@ import Layout from "@layouts/Layout.astro";
     width: 90%;
     height: 33.33%;
     margin-inline: auto;
-    background-color: var(--color-principal-100);
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -212,17 +210,11 @@ import Layout from "@layouts/Layout.astro";
   }
   .btn{
     position: absolute;
-    background-color: var(--color-principal-200);
-    border: 1px solid var(--color-principal-700);
     border-radius: 50%;padding: 10px;
     top: 75%;
     right: 5%;
     cursor: pointer;
-    
-    &:hover {
-      background-color: var(--color-principal-300);
-      border: 1px solid var(--color-principal-800);
-    }
+
   }
   .nombre_usuario {
     font-size: 20px;
@@ -231,24 +223,16 @@ import Layout from "@layouts/Layout.astro";
     .editar_perfil {
     width: 256px;
     height: 40px;
-    background-color: var(--color-principal-200);
-    border: 1px solid var(--color-principal-700);
     border-radius: 10px;
 
     cursor: pointer;
     font-size: 16px;
-    color: var(--color-principal-900);
-    
-    &:hover {
-      background-color: var(--color-principal-300);
-      border: 1px solid var(--color-principal-800);
-    }
   }
 </style>
 <script>
-  const boton = document.querySelector('.editar_perfil');
-  const formulario = document.querySelector('.formulario');
-  const nombre_usuario = document.querySelector('.nombre_usuario');
+  const boton = document.querySelector('.editar_perfil') as HTMLButtonElement;
+  const formulario = document.querySelector('.formulario') as HTMLFormElement;
+  const nombre_usuario = document.querySelector('.nombre_usuario') as HTMLParagraphElement;
 
   boton.addEventListener('click', () => {
     formulario.style.display = 'block';
