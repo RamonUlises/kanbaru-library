@@ -3,12 +3,6 @@ import { getPool } from "@lib/database";
 import { encrypt } from "@lib/encripts";
 
 export const POST: APIRoute = async ({ request }) => {
-  if (request.headers.get("Content-Type") !== "application/json") {
-    return new Response(
-      JSON.stringify({ message: "El contenido del body debe ser JSON" }),
-      { status: 400 }
-    );
-  }
 
   const { nombre, correo, contrasenia, fecha_nacimiento, id_sexo } =
     await request.json();
