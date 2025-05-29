@@ -1,0 +1,44 @@
+---
+
+const estadisticas = [
+  "Cantidad de usuario por tipo de usuario",
+  "Cantidad de usuarios por sexo",
+  "Cantidad de préstamos por categoría de libros",
+  "Cantidad de préstamos por tipo de usuario",
+  "Libros más prestados",
+  "Préstamos por sexo del usuario",
+  "Categoría más leídas por sexo",
+  "Usuarios con mayor números de prestamos",
+  "Correlación entre edad del usuario y cantidad de préstamos"
+];
+---
+
+<div class="bg-[#f9f5ef] p-6 rounded-xl shadow-md max-w-xl w-full text-sm">
+  <h2 class="text-lg font-semibold mb-2">Estadística personalizada</h2>
+  <p class="mb-4 font-semibold">Selecciona una variable para generar un gráfico:</p>
+
+  <select id="selectEstadistica" class="w-full p-2 rounded bg-[#b18b6e] text-white font-medium focus:outline-none">
+    <option disabled selected>Selecciona una opción</option>
+    {estadisticas.map(item => (
+      <option value={item}>{item}</option>
+    ))}
+  </select>
+
+  <button id="btnGenerar" class="mt-4 px-6 py-2 bg-[#4b3b35] text-white rounded hover:bg-[#362c28] transition">
+    Generar
+  </button>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('btnGenerar');
+    const select = document.getElementById('selectEstadistica');
+
+    btn?.addEventListener('click', () => {
+      const selected = select?.value;
+      if (selected && selected !== "Selecciona una opción") {
+        window.dispatchEvent(new CustomEvent('generar-grafico', { detail: selected }));
+      }
+    });
+  });
+</script>

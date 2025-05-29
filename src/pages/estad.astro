@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import Image1 from "../assets/inicio1.png";
+import Image2 from "../assets/imageInicio2.png";
+import Image3 from "../assets/imageInicio3.png";
+import Image4 from "../assets/imageInicio4.png";
+import EstadisticasSelect from "@components/EstadisticasSelect.astro";
+import MostrarGrafico from "../components/MostrarGrafico.astro";
+import GraficSexo from "@components/GraficSexo.astro";
+
+---
+
+
+<Layout title="Inicio">
+  <section class="flex flex-col w-full overflow-x-hidden dark:bg-zinc-900">
+    <div class="min-h-[100vh] flex flex-col justify-center items-center px-4 gap-6 py-10">
+         <EstadisticasSelect client:load />
+      <MostrarGrafico client:load />
+      <GraficSexo client:load/>
+
+    </div>
+  </section>
+</Layout>
+

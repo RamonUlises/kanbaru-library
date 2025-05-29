@@ -1,0 +1,49 @@
+---
+---
+
+// Contenedor del gráfico
+<div id="contenedor-grafico" class="w-full mt-8"></div>
+
+<script is:inline>
+  // Espera el evento personalizado desde el botón "Generar"
+  window.addEventListener("generar-grafico", async (e) => {
+    const contenedor = document.getElementById("contenedor-grafico");
+    const valor = e.detail;
+
+    contenedor.innerHTML = ""; // Limpia contenido anterior
+
+    let html = "";
+    switch (valor) {
+      case "Cantidad de usuarios por sexo":
+        html = `
+          <h2 class="text-2xl font-semibold text-center dark:text-white">
+            Cantidad de usuarios por sexo
+          </h2>
+          <div class="flex justify-center my-8">
+            <canvas id="graficoSexo" width="400" height="400" style="background:white; border: 1px solid #ccc;"></canvas>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"><\\/script>
+          <script src="/scripts/grafico-sexo.js"><\\/script>
+        `;
+        break;
+
+      default:
+        html = `<p class="text-red-600">Gráfico no disponible.</p>`;
+    }
+
+    // Inyecta el HTML generado
+    contenedor.innerHTML = html;
+
+    // Reejecuta los <script> agregados dinámicamente
+    const scripts = contenedor.querySelectorAll("script");
+    scripts.forEach((oldScript) => {
+      const newScript = document.createElement("script");
+      if (oldScript.src) {
+        newScript.src = oldScript.src;
+      } else {
+        newScript.textContent = oldScript.textContent;
+      }
+      oldScript.replaceWith(newScript);
+    });
+  });
+</script>
