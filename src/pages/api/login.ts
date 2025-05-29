@@ -9,13 +9,6 @@ import jwt from "jsonwebtoken";
 const AUTH_KEY = import.meta.env.AUTH_KEY;
 
 export const POST: APIRoute = async ({ request }) => {
-  if (request.headers.get("Content-Type") !== "application/json") {
-    return new Response(
-      JSON.stringify({ message: "El contenido del body debe ser JSON" }),
-      { status: 400 },
-    );
-  }
-
   const { correo, contrasenia } = await request.json();
 
   if (!correo || !contrasenia) {
