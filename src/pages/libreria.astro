@@ -1,0 +1,28 @@
+---
+import Layout from "@layouts/Layout.astro"
+import CardLibros from "@components/CardLibros.astro"
+---
+
+
+<Layout title="Librería">
+  <section>
+    <CardLibros ></CardLibros>
+    <CardLibros ></CardLibros>
+    <CardLibros ></CardLibros>
+  </section>
+  
+</Layout>
+
+<style>
+  section{
+    margin-block: 100px;
+    width: 90%;
+    margin-inline: auto;
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1300px;
+  }
+
+</style>
