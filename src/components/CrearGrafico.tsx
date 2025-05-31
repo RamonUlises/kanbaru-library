@@ -44,7 +44,6 @@ export default function DynamicCharts() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Panel de Configuración */}
           <div className="lg:col-span-1">
             <Card className="shadow-lg border-0 bg-white/80 backdrop-blur p-0 dark:bg-zinc-800">
               <CardHeader className="bg-gradient-to-r from-principal-600 to-principal-400 text-white rounded-t-lg pt-4 dark:from-zinc-700 dark:to-zinc-800">
@@ -55,7 +54,6 @@ export default function DynamicCharts() {
                 <CardDescription className="text-blue-100 dark:text-slate-200">Selecciona las variables y tipo de gráfico</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6 p-6">
-                {/* Variable Principal */}
                 <div className="space-y-2">
                   <Label htmlFor="variable1" className="text-sm font-semibold text-slate-700 dark:text-slate-200">
                     Variable Principal
@@ -81,7 +79,6 @@ export default function DynamicCharts() {
 
                 <Separator />
 
-                {/* Tipo de Gráfico */}
                 <div className="space-y-2">
                   <Label className="text-sm font-semibold text-slate-700 dark:text-slate-200">Tipo de Gráfico</Label>
                   <div className="grid grid-cols-1 gap-2">
@@ -104,7 +101,6 @@ export default function DynamicCharts() {
 
                 <Separator />
 
-                {/* Filtro de Tiempo */}
                 <div className="space-y-2">
                   <Label htmlFor="timeFilter" className="text-sm font-semibold text-slate-700 dark:text-slate-200">
                     Filtro de Tiempo
@@ -125,7 +121,6 @@ export default function DynamicCharts() {
 
                 <Separator />
 
-                {/* Botones de Acción */}
                 <div className="space-y-2">
                   <Button
                     onClick={handleGenerateChart}
