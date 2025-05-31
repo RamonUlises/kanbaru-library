@@ -23,7 +23,10 @@ export const variables = {
       { value: "categoria_libros", label: "Categoría de libros" },
       { value: "libros_mas_prestados", label: "Libros más prestados" },
     ],
-  },
+  }
+}
+
+export const variablesTiempo = {
   tiempo: {
     label: "Tiempo",
     options: [

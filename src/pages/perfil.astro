@@ -2,9 +2,8 @@
 import Layout from "@layouts/Layout.astro";
 ---
 <Layout title="Perfil" >
-  <section class="dark:bg-zinc-900">
+  <section class="dark:bg-zinc-900 pt-4 md:pt-28 pb-12">
     <div class="datos_usuario">
-
       <div>
         <div class="foto_usuario"><img src="https://th.bing.com/th/id/OIP.8xpERVMOpseDTK8oTEOsUAHaHa?cb=iwp2&rs=1&pid=ImgDetMain" alt="Tu foto de perfil">
           <button type="button" class="btn bg-principal-200 border border-principal-700 dark:bg-zinc-700 dark:border-transparent">
@@ -116,7 +115,6 @@ import Layout from "@layouts/Layout.astro";
 
   .datos_usuario  {
     grid-area: datos;
-    padding: 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -174,7 +172,6 @@ import Layout from "@layouts/Layout.astro";
 
   .mas_datos {
     grid-area: mas;
-    padding: 100px 0;
     height: 900px;
   }
   .libros{
