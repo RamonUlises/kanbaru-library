@@ -18,13 +18,13 @@ const generateMockData = async (variable1: string, timeFilter?: string) => {
 
     console.log(data);
 
-    const backgroundColor = ["#3B82F6", "#8B5CF6", "#10B981", "#F59E0B"];
+    const backgroundColor = ["#A0826F", "#937263", "#7B5E53", "#654E47"];
 
     if (response.status !== 200) {
       return {
         labels: ["Sin datos"],
         data: [0],
-        backgroundColor: ["#94A3B8"],
+        backgroundColor: ["#7B5E53"],
       };
     }
 
@@ -37,7 +37,7 @@ const generateMockData = async (variable1: string, timeFilter?: string) => {
     return {
       labels: ["Sin datos"],
       data: [0],
-      backgroundColor: ["#94A3B8"],
+      backgroundColor: ["#7B5E53"],
     };
   }
 };
@@ -215,19 +215,19 @@ export default function ChartRenderer({
       {chartData && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           <Card className="p-4 text-center">
-            <div className="text-2xl font-bold text-blue-600">
+            <div className="text-2xl font-bold text-principal-600 dark:text-slate-200">
               {chartData.data.reduce((a: number, b: number) => a + b, 0)}
             </div>
             <div className="text-sm text-slate-600">Total</div>
           </Card>
           <Card className="p-4 text-center">
-            <div className="text-2xl font-bold text-green-600">
+            <div className="text-2xl font-bold text-principal-600 dark:text-slate-200">
               {Math.max(...chartData.data)}
             </div>
             <div className="text-sm text-slate-600">Máximo</div>
           </Card>
           <Card className="p-4 text-center">
-            <div className="text-2xl font-bold text-orange-600">
+            <div className="text-2xl font-bold text-principal-600 dark:text-slate-200">
               {Math.round(
                 chartData.data.reduce((a: number, b: number) => a + b, 0) /
                   chartData.data.length,
@@ -236,7 +236,7 @@ export default function ChartRenderer({
             <div className="text-sm text-slate-600">Promedio</div>
           </Card>
           <Card className="p-4 text-center">
-            <div className="text-2xl font-bold text-purple-600">
+            <div className="text-2xl font-bold text-principal-600 dark:text-slate-200">
               {chartData.labels.length}
             </div>
             <div className="text-sm text-slate-600">Categorías</div>
