@@ -1,28 +1,37 @@
 ---
-import Layout from "@layouts/Layout.astro"
-import CardLibros from "@components/CardLibros.astro"
+import Layout from "@layouts/Layout.astro";
+import CardLibros from "@components/CardLibros.astro";
+import { getPool } from "@/lib/database";
+import { type LibrosTypes } from "@/types/libros";
+
+let books: LibrosTypes[] = [];
+
+try{
+  const pool = await getPool();
+  const response = await pool.query`SELECT TOP 15 * FROM libros`;
+  books = response.recordset;
+
+} catch(error) {
+  console.log('Error al hacer la peticion', error)
+}
 ---
 
 
 <Layout title="Librería">
-  <section>
-    <CardLibros ></CardLibros>
-    <CardLibros ></CardLibros>
-    <CardLibros ></CardLibros>
-  </section>
-  
+  <section class="md:mt-24 mt-5 mb-20">
+    {books.map(libro => (
+      <CardLibros libro={libro} />
+    ))}
+  </section> 
 </Layout>
 
 <style>
   section{
-    margin-block: 100px;
-    width: 90%;
-    margin-inline: auto;
-    display: grid;
-    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
     gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1300px;
+    justify-content: center;
   }
+  
 
 </style>
