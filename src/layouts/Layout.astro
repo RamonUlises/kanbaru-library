@@ -21,23 +21,27 @@ const { title } = Astro.props;
     <title>{title} - Kanbaru Library</title>
     <script is:inline>
       (() => {
-      const tema = localStorage.getItem("tema");
+        const tema = localStorage.getItem("tema");
 
-      if (!tema || tema === "sistema") {
-        localStorage.setItem("tema", "sistema");
+        if (!tema || tema === "sistema") {
+          localStorage.setItem("tema", "sistema");
 
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.documentElement.classList.add("dark");
-        } else {
-        document.documentElement.classList.remove("dark");
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark");
+            document.documentElement.style.setProperty("--scrollbar-1", "#F0F0F0");
+            document.documentElement.style.setProperty("--scrollbar-2", "#000000");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
         }
-      }
 
-      if (tema === "oscuro") {
-        document.documentElement.classList.add("dark");
-      } else if (tema === "claro") {
-        document.documentElement.classList.remove("dark");
-      }
+        if (tema === "oscuro") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.style.setProperty("--scrollbar-1", "#F0F0F0");
+          document.documentElement.style.setProperty("--scrollbar-2", "#000000");
+        } else if (tema === "claro") {
+          document.documentElement.classList.remove("dark");
+        }
       })();
     </script>
     <style>

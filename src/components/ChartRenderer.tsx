@@ -3,6 +3,7 @@ import { Chart } from "chart.js/auto";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Loader2, TrendingUp, Users, BookOpen, Calendar } from "lucide-react";
+import { getTema, TemaEvents } from "@/utils/temaPage";
 
 interface ChartRendererProps {
   variable1: string;
@@ -11,14 +12,11 @@ interface ChartRendererProps {
 }
 
 const generateMockData = async (variable1: string, timeFilter?: string) => {
-  console.log(variable1);
   try {
     const response = await fetch(`/api/graficas/${variable1}`);
     const data = await response.json();
 
-    console.log(data);
-
-    const backgroundColor = ["#A0826F", "#937263", "#7B5E53", "#654E47"];
+    const backgroundColor = getTema() === "oscuro" ? ["#27272a", "#3f3f46", "#52525b", "#262626"] : ["#A0826F", "#937263", "#7B5E53", "#654E47"];
 
     if (response.status !== 200) {
       return {
@@ -54,6 +52,11 @@ export default function ChartRenderer({
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const handleTemaChange = async () => {
+      const updatedData = await generateMockData(variable1, timeFilter);
+      setChartData(updatedData); // Esto va a volver a renderizar el gráfico con nuevos colores
+    };
+
     let isMounted = true;
 
     const fetchData = async () => {
@@ -78,7 +81,10 @@ export default function ChartRenderer({
 
     fetchData();
 
+    TemaEvents?.addEventListener("tema-cambiado", handleTemaChange);
+
     return () => {
+      TemaEvents?.removeEventListener("tema-cambiado", handleTemaChange);
       isMounted = false;
       if (chartRef.current) chartRef.current.destroy();
     };
@@ -186,8 +192,8 @@ export default function ChartRenderer({
     return (
       <div className="flex items-center justify-center h-96">
         <div className="text-center space-y-4">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-600 mx-auto" />
-          <p className="text-slate-600">Generando gráfico...</p>
+          <Loader2 className="h-8 w-8 animate-spin text-principal-600 dark:text-slate-200 mx-auto" />
+          <p className="text-slate-600 dark:text-slate-200">Generando gráfico...</p>
         </div>
       </div>
     );

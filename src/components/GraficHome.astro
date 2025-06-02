@@ -1,6 +1,12 @@
+---
+
+---
+
 <div class="mt-12">
-  <h2 class="md:text-5xl font-semibold text-2xl sm:text-3xl text-center dark:text-white">
-    {" "} 
+  <h2
+    class="md:text-5xl font-semibold text-2xl sm:text-3xl text-center dark:text-white"
+  >
+    {" "}
     Cantidad de libros por categoría
   </h2>
   <div class="flex justify-center items-center max-w-[650px] mx-auto my-8">
@@ -9,68 +15,82 @@
 </div>
 
 <script>
-  export interface Category {
-    categoria: string;
-    cantidad: number;
-  }
+import type { ChartConfiguration } from "chart.js";
+import Chart from "chart.js/auto";
+import { getTema, TemaEvents } from "@/utils/temaPage";
 
-  import type { ChartConfiguration } from "chart.js";
-  import Chart from "chart.js/auto";
+export interface Category {
+  categoria: string;
+  cantidad: number;
+}
 
-  const response = await fetch("/api/books/countcategories");
-  const categories: Category[] = await response.json();
+let chart: Chart;
 
-  const dataCount = categories.map(c => c.cantidad);
+const response = await fetch("/api/books/countcategories");
+const categories: Category[] = await response.json();
+
+const dataCount = categories.map((c) => c.cantidad);
+const labels = categories.map((c) => c.categoria);
+
+function obtenerColores(tema: string): string[] {
+  return tema === "oscuro"
+    ? ["#27272a", "#3f3f46", "#52525b", "#262626"]
+    : ["#7B5E53", "#A0826F", "#937263", "#654E47", "#2C211E", "#53403B"];
+}
+
+function crearPluginFondo(tema: string) {
+  return {
+    id: "customCanvasBackgroundColor",
+    beforeDraw: (chart: any) => {
+      const { ctx } = chart;
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-over";
+      ctx.fillStyle = tema === "oscuro" ? "#18181b" : "#ffffff";
+      ctx.fillRect(0, 0, chart.width, chart.height);
+      ctx.restore();
+    },
+  };
+}
+
+function crearChart(tema: string) {
+  const $canvas = document.getElementById("myChart") as HTMLCanvasElement;
+  const ctx = $canvas.getContext("2d");
+  if (!ctx) throw new Error("No se pudo obtener el contexto del canvas");
 
   const data = {
-    labels: categories.map(c => c.categoria),
+    labels,
     datasets: [
       {
         label: "Libros",
         data: dataCount,
-        backgroundColor: [
-          "#7B5E53",
-          "#A0826F",
-          "#937263",
-          "#654E47",
-          "#2C211E",
-          "#53403B",
-          "#DDD5CB",
-          "#C7B8AA",
-          "#EFEBE5",
-          "#B09886",
-        ],
+        backgroundColor: obtenerColores(tema),
         hoverOffset: 4,
       },
     ],
   };
 
-  const plugin = {
-    id: "customCanvasBackgroundColor",
-    beforeDraw: (chart: any, args: any, options: any) => {
-      const { ctx } = chart;
-      ctx.save();
-      ctx.globalCompositeOperation = "destination-over";
-      ctx.fillStyle = options.color || "#ffffff";
-      ctx.fillRect(0, 0, chart.width, chart.height);
-      ctx.restore();
-    },
-  };
-
   const config: ChartConfiguration = {
     type: "doughnut",
-    data: data,
+    data,
     options: {},
-    plugins: [plugin],
+    plugins: [crearPluginFondo(tema)],
   };
 
-  const $canvas = document.getElementById("myChart") as HTMLCanvasElement;
-  $canvas.width = 400;
-  $canvas.height = 400;
-  const ctx = $canvas.getContext("2d");
-  
-  if (!ctx) {
-    throw new Error("Failed to get canvas context");
-  }
-  new Chart(ctx, config);
+  return new Chart(ctx, config);
+}
+
+// Crear el gráfico por primera vez
+chart = crearChart(getTema());
+
+// Detectar cambios de tema
+TemaEvents?.addEventListener("tema-cambiado", (event: Event) => {
+  const nuevoTema = (event as CustomEvent).detail;
+
+  // 🔥 Destruir el gráfico anterior
+  chart.destroy();
+
+  // 🔁 Crear uno nuevo con el nuevo tema
+  chart = crearChart(nuevoTema);
+});
+
 </script>
