@@ -1,37 +1,30 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import CardLibros from "@components/CardLibros.astro";
+import CardLibros from "@/components/CardLibros";
 import { getPool } from "@/lib/database";
 import { type LibrosTypes } from "@/types/libros";
+import LibrosScroll from "@/components/LibrosScroll";
 
 let books: LibrosTypes[] = [];
 
-try{
+try {
   const pool = await getPool();
-  const response = await pool.query`SELECT TOP 15 * FROM libros`;
+  const response = await pool.query`SELECT TOP 15 * FROM libros l JOIN categorias c ON l.id_categoria = c.id_categoria`;
   books = response.recordset;
-
-} catch(error) {
-  console.log('Error al hacer la peticion', error)
+} catch (error) {
+  console.log("Error al hacer la peticion", error);
 }
 ---
 
-
 <Layout title="Librería">
-  <section class="md:mt-24 mt-5 mb-20">
-    {books.map(libro => (
-      <CardLibros libro={libro} />
-    ))}
-  </section> 
+  <LibrosScroll client:load />
 </Layout>
 
 <style>
-  section{
+  section {
     display: flex;
     flex-flow: row wrap;
     gap: 20px;
     justify-content: center;
   }
-  
-
 </style>

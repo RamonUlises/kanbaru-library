@@ -7,5 +7,6 @@ export interface LibrosTypes {
   ejemplares: string,
   descargable: boolean,
   codigo_libro: string,
-  id_categoria: number
+  id_categoria: number,
+  categoria: string,
 }
